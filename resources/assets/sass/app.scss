@@ -1,2 +1,15 @@
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 @import "node_modules/font-awesome/scss/font-awesome";
+#login-message, #register-message {
+    display: none;
+}
+
+.navbar-default {
+    background-color: black;
+}
+
+#logo {
+    padding: 1px 10px;
+    height: 45px;
+    width: 230px;
+}
