@@ -13,6 +13,12 @@ use App\Http\Requests\RegisterRequest;
 
 class UserController extends Controller
 {
+    /**
+    * Display a listing of the resource.
+    *
+    * @return \Illuminate\Http\Response
+    */
+    
     public function login(LoginRequest $request)
     {
         if ($request->ajax()) {
@@ -21,7 +27,7 @@ class UserController extends Controller
                 'password' => $request->password,
             ];
             if (Auth::attempt($auth)) {
-                return Response::json(['success' => true, 'url' => route('home')]);
+                return Response::json(['success' => true, 'url' => route(Auth::user()->isAdmin() ? 'admin' : 'home')]);
             }
 
             return Response::json(['success' => false, 'messages' => trans('settings.login_error')]);

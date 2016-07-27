@@ -4,12 +4,17 @@
     display: none;
 }
 
-.navbar-default {
-    background-color: black;
-}
-
 #logo {
     padding: 1px 10px;
     height: 45px;
     width: 230px;
+}
+
+.img-responsive {
+    width: 32px;
+    height: 32px;;
+    position: absolute;
+    top: 10px;
+    left: -25px;
+    border-radius: 50%;
 }
