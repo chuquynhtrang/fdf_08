@@ -11,6 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/' , ['as' =>'home', 'uses' => 'HomeController@index']);
+Route::group(['middleware' => 'web'], function() {
+    Route::post('login', [
+            'as' => 'login',
+            'uses' => 'UserController@login'
+        ]);
+    Route::post('register', [
+        'as' => 'register',
+        'uses' => 'UserController@register'
+    ]);
+    Route::get('logout', [
+        'as' => 'logout',
+        'uses' =>'UserController@logout'
+    ]);
 });

@@ -7,6 +7,7 @@ use App\Models\Comment;
 use App\Models\Order;
 use App\Models\Suggest;
 use App\Models\SocialAccount;
+use Hash;
 
 class User extends Authenticatable
 {
@@ -46,5 +47,10 @@ class User extends Authenticatable
     public function socialAccounts()
     {
         return $this->hasMany(SocialAccount::class);
+    }
+
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = Hash::make($value);
     }
 }
