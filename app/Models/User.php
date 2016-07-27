@@ -11,6 +11,9 @@ use Hash;
 
 class User extends Authenticatable
 {
+    const ROLE_ADMIN = 1;
+    const ROLE_USER = 0;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -52,5 +55,10 @@ class User extends Authenticatable
     public function setPasswordAttribute($value)
     {
         $this->attributes['password'] = Hash::make($value);
+    }
+
+    public function isAdmin()
+    {
+        return $this->role == User::ROLE_ADMIN;
     }
 }

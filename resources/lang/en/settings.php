@@ -12,4 +12,5 @@ return [
     'confirm_password' => 'Confirm_password',
     'food_drink' => 'Food & Drink',
     'logout' => 'Logout',
+    'profile' => 'Profile',
 ];
