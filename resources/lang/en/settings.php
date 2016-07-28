@@ -13,4 +13,5 @@ return [
     'food_drink' => 'Food & Drink',
     'logout' => 'Logout',
     'profile' => 'Profile',
+    'search' => 'Search',
 ];
