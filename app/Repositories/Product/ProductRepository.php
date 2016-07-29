@@ -13,6 +13,4 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
     {
         $this->model = $product;
     }
-
-
 }

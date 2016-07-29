@@ -19,6 +19,7 @@ class AdminController extends Controller
     {
         $this->userRepository = $userRepository;
     }
+
     /**
     * Display a listing of the resource.
     *
@@ -26,7 +27,9 @@ class AdminController extends Controller
     */
     public function index()
     {
-        return view('admin.index');
+        $users = $this->userRepository->all();
+
+        return view('admin.user.index', compact('users'));
     }
 
     public function profile($id)
@@ -62,5 +65,5 @@ class AdminController extends Controller
         $admin->save();
 
         return redirect('admin');
-    }    
+    }
 }
