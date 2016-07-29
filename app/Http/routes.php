@@ -10,23 +10,28 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+Route::group(['middleware' => 'web'], function() {
+    Route::get('/' , ['as' =>'home', 'uses' => 'HomeController@index']);
+    Route::post('login', [
+        'as' => 'login',
+        'uses' => 'UserController@login'
+    ]);
+    Route::post('register', [
+        'as' => 'register',
+        'uses' => 'UserController@register'
+    ]);
+    Route::get('logout', [
+        'as' => 'logout',
+        'uses' =>'UserController@logout'
+    ]);
+    Route::get('login/{social}', ['as' => 'login.{social}', 'uses' => 'SocialAccountController@redirectToProvider']);
+    Route::get('login/{social}/callback', ['as' => 'login.{social}.callback', 'uses' => 'SocialAccountController@handleProviderCallback']);
+});
 
-Route::get('/' , ['as' =>'home', 'uses' => 'HomeController@index']);
-Route::post('login', [
-    'as' => 'login',
-    'uses' => 'UserController@login'
-]);
-Route::post('register', [
-    'as' => 'register',
-    'uses' => 'UserController@register'
-]);
-Route::get('logout', [
-    'as' => 'logout',
-    'uses' =>'UserController@logout'
-]);
 Route::group(['middleware' => 'admin', 'prefix' => 'admin', 'namespace' => 'Admin'], function() {
     Route::get('index',[
         'as' => 'admin',
         'uses' => 'AdminController@index',
     ]);
 });
+

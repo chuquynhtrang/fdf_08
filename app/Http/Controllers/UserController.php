@@ -18,7 +18,7 @@ class UserController extends Controller
     *
     * @return \Illuminate\Http\Response
     */
-    
+
     public function login(LoginRequest $request)
     {
         if ($request->ajax()) {
