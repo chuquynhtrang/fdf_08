@@ -18,11 +18,20 @@ abstract class BaseRepository
         return $this->model->count();
     }
 
+    public function all() 
+    {
+        return $this->model->all();
+    }
     public function find($id) 
     {
         return $this->model->find($id);
     }
 
+    public function findBy($column, $option) 
+    {
+        return $this->model->where($column, $option)->get();
+    }
+    
     public function paginate($limit)
     {
         $paginate = $limit ? $limit : config('common.paginate');

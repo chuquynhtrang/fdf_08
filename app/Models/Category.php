@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Suggest;
+use App\Models\Category;
 
 class Category extends Model
 {
