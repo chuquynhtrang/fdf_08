@@ -159,6 +159,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
+        JD\Cloudder\CloudderServiceProvider::class,
+        App\Providers\RepositoryServiceProvider::class,
 
     ],
 
@@ -209,6 +211,7 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        'Cloudder' => JD\Cloudder\Facades\Cloudder::class,
     ],
 
 ];

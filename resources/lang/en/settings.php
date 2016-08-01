@@ -13,5 +13,10 @@ return [
     'food_drink' => 'Food & Drink',
     'logout' => 'Logout',
     'profile' => 'Profile',
-    'search' => 'Search',
+    'search' => 'Search',   
+    'categories' => 'Categories',
+    'products' => 'Products',
+    'orders' => 'Orders',
+    'users' => 'Users',
+    'suggests' => 'Suggests',
 ];

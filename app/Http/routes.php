@@ -29,9 +29,17 @@ Route::group(['middleware' => 'web'], function() {
 });
 
 Route::group(['middleware' => 'admin', 'prefix' => 'admin', 'namespace' => 'Admin'], function() {
-    Route::get('index',[
+    Route::get('/',[
         'as' => 'admin',
         'uses' => 'AdminController@index',
+    ]);
+    Route::put('{id}', [
+        'as' => 'admin.update',
+        'uses' => 'AdminController@update',
+    ]);
+    Route::get('{id}/profile/', [
+        'as' => 'admin.profile',
+        'uses' => 'AdminController@profile',
     ]);
 });
 

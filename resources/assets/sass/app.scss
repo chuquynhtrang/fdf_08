@@ -12,12 +12,18 @@
 }
 
 
-.img-responsive {
+#profile_avatar {
     width: 32px;
-    height: 32px;;
+    height: 32px;
     position: absolute;
     top: 10px;
     left: -25px;
+    border-radius: 50%;
+}
+
+#show_avatar {
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
 }
 
@@ -87,6 +93,12 @@
 
 #avatar {
     margin-top: -1px;
+    a:hover, a:focus, a:visited, a:active {
+        background-color: #004D40 !important;
+    }
+    a:hover {
+        color: #FF7043;
+    }
 }
 
 .login-register {
@@ -100,4 +112,59 @@
 
 .text-search {
     display: inline-table;
+}
+
+#menu {
+    background-color: #004D40;
+}
+
+.sidebar-nav {
+    position: absolute;
+    background-color: #00695C;
+    margin-top: 60px;
+    height: 100%;
+    top: 0;
+    width: 200px;
+    padding: 0;
+    list-style: none;
+    li {
+        text-indent: 10px;
+        line-height: 60px;
+        a {
+            display: block;
+            text-decoration: none;
+            color: #FAFAFA;
+            &:hover {
+                text-decoration: none;
+                color: #FF7043;
+                background: rgba(255,255,255,0.2);
+            }
+            &:active, &:focus {
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+#sidebar-wrapper {
+    background: #000;
+}
+
+.page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding-left: 15px;
+    margin-left: 220px;
+}
+a {
+    color : #fff;
+}
+#menu-user {
+    background-color: #26A69A;
+    top: 0;
+    left: 100%;
+    margin-top: 6px 0 0 -1px;
+    .sub-menu {
+        padding-bottom: 20px;
+    }
 }
