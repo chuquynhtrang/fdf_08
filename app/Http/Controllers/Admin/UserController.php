@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Repositories\User\UserRepositoryInterface;
@@ -14,7 +13,7 @@ use App\Http\Requests\UpdateUserRequest;
 
 class UserController extends Controller
 {
-    private $UserRepository;
+    private $userRepository;
 
     public function __construct(UserRepositoryInterface $userRepository)
     {

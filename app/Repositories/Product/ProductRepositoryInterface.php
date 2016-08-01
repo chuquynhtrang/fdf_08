@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories\Products;
+namespace App\Repositories\Product;
 
 interface ProductRepositoryInterface
 {
@@ -11,5 +11,6 @@ interface ProductRepositoryInterface
     public function search($column, $value);
     public function update($inputs, $id);
     public function find($id);
-    public function piginate($limit);
+    public function paginate($limit);
+    public function store($inputs);
 }

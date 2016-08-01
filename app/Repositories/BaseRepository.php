@@ -32,6 +32,7 @@ abstract class BaseRepository
         }
 
         return $data;
+
     }
 
     public function findBy($column, $option)

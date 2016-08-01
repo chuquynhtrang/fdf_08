@@ -65,7 +65,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locales' => ['en' => 'English', 'vi' => 'VietNamese'],
 
     /*
     |--------------------------------------------------------------------------
@@ -149,6 +149,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
+        JD\Cloudder\CloudderServiceProvider::class,
 
 
         /*

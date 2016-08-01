@@ -34,6 +34,20 @@
                                 {{ trans('settings.register') }}
                             </a>
                         </li>
+
+                        <li class="dropdown" id="language">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                {{ trans('settings.language') }}
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="{{ route('lang', 'en') }}">{{ trans('settings.english') }}</a>
+                                 </li>
+                                <li>
+                                    <a href="{{ route('lang', 'vi') }}">{{ trans('settings.vietnamese') }}</a>
+                                </li>
+                            </ul>
+                        </li>
                     @else
                         <li class="dropdown" id="avatar">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
