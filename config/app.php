@@ -158,6 +158,7 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\RepositoryServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
         JD\Cloudder\CloudderServiceProvider::class,
         App\Providers\RepositoryServiceProvider::class,

@@ -28,18 +28,22 @@ Route::group(['middleware' => 'web'], function() {
     Route::get('login/{social}/callback', ['as' => 'login.{social}.callback', 'uses' => 'SocialAccountController@handleProviderCallback']);
 });
 
-Route::group(['middleware' => 'admin', 'prefix' => 'admin', 'namespace' => 'Admin'], function() {
-    Route::get('/',[
+Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function() {
+    Route::get('index',[
         'as' => 'admin',
-        'uses' => 'AdminController@index',
+        'uses' => 'Admin\AdminController@index',
     ]);
+
     Route::put('{id}', [
         'as' => 'admin.update',
-        'uses' => 'AdminController@update',
+        'uses' => 'Admin\AdminController@update',
     ]);
     Route::get('{id}/profile/', [
         'as' => 'admin.profile',
-        'uses' => 'AdminController@profile',
+        'uses' => 'Admin\AdminController@profile',
     ]);
+
+    Route::resource('users', 'Admin\UserController');
+
 });
 

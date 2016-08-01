@@ -1,6 +1,6 @@
 <?php
 /**
-* Base Repository 
+* Base Repository
 */
 
 namespace App\Repositories;
@@ -18,25 +18,32 @@ abstract class BaseRepository
         return $this->model->count();
     }
 
-    public function all() 
+    public function all()
     {
         return $this->model->all();
     }
-    public function find($id) 
+
+    public function find($id)
     {
-        return $this->model->find($id);
+        $data = $this->model->find($id);
+
+        if (!$data) {
+            throw new Exception(trans('message.find_error'));
+        }
+
+        return $data;
     }
 
-    public function findBy($column, $option) 
+    public function findBy($column, $option)
     {
         return $this->model->where($column, $option)->get();
     }
-    
+
     public function paginate($limit)
     {
         $paginate = $limit ? $limit : config('common.paginate');
-        
-        return $this->model->paginate($paginate); 
+
+        return $this->model->paginate($paginate);
     }
 
     public function lists($column, $key = null)
@@ -60,21 +67,58 @@ abstract class BaseRepository
         return $this->model->insert($inputs);
     }
 
-    public function update($inputs, $id) 
+    public function update($inputs, $id)
     {
-        return $this->model->where('id', $id)->update($inputs);
+        $data = $this->model->where('id', $id)->update($inputs);
+
+        if (!$data) {
+            throw new Exception(trans('message.update_error'));
+        }
+
+        return $data;
     }
 
     public function delete($ids)
     {
-        foreach ($ids as $id)
-            $data = $this->model->destroy($id);
-        
-        return $data;
+        try {
+            DB::beginTransaction();
+            $data = $this->model->destroy($ids);
+
+            if (!$data) {
+                throw new Exception(trans('message.delete_error'));
+            }
+
+            DB::commit();
+        } catch (Exception $e) {
+            DB::rollBack();
+            throw $e;
+        }
     }
 
     public function search($column, $value)
     {
         return $this->model->where('$column LIKE $value');
+    }
+
+    public function store($input)
+    {
+        $data = $this->model->create($input);
+
+        if (!$data) {
+            throw new Exception(trans('message.create_error'));
+        }
+
+        return $data;
+    }
+
+    public function show($id = null)
+    {
+        $data = $this->model->find($id);
+
+        if (!$data) {
+            throw new Exception(trans('message.show_error'));
+        }
+
+        return $data;
     }
 }
