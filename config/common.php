@@ -31,5 +31,8 @@ return [
     'category_parent' => [
     	1 => 'Foods',
     	2 => 'Drinks',
-    ]
+    ],
+
+    'items_per_page' => 6,
+    'currency' => '$',
 ];

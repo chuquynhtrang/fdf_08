@@ -25,6 +25,14 @@
                 <ul class="nav navbar-nav navbar-right login-register">
                     @if (Auth::guest())
                         <li>
+                            <a href="#"> 
+                                <i class="fa fa-shopping-cart"></i> {{ trans('settings.shopping_cart') }} 
+                                <span class="badge">
+                                    {{ Session::has('cart') ? Session::get('cart')->totalQuantity : '' }}
+                                </span>
+                            </a>
+                        </li>
+                        <li>
                             <a id="login" data-toggle="modal">
                                 {{ trans('settings.login') }}
                             </a>

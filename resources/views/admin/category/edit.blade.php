@@ -47,7 +47,7 @@
                             {!! Form::select('parent_id', 
                                 config('common.category_parent'), 
                                 $category['parent_id'], 
-                                ['class' => 'form-control']), 
+                                ['class' => 'form-control']) 
                             !!}
                         </div>
 

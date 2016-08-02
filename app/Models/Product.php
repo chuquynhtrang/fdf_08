@@ -9,7 +9,14 @@ use App\Models\LineItem;
 class Product extends Model
 {
     protected $fillable = [
-        'name', 'description', 'price', 'status', 'image', 'quantity', 'rating',
+        'name', 
+        'description', 
+        'price', 
+        'status', 
+        'image', 
+        'quantity', 
+        'rating', 
+        'category_id',
     ];
 
     public function comments()
