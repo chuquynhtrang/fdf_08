@@ -26,12 +26,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        try {
-            $categoriesParent = $this->categoryRepository->findBy('parent_id', config('common.path_parent'));
-            $categoriesChild = $this->categoryRepository->all();
-        } catch (Exception $ex) {
-            return redirect()->route('home')->withError($ex->getMessage());
-        }
+        $categoriesParent = $this->categoryRepository->findBy('parent_id', config('common.parent'));
+        $categoriesChild = $this->categoryRepository->all();
 
         return view('home' , compact('categoriesParent', 'categoriesChild'));
     }

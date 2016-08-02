@@ -10,7 +10,6 @@ return [
 
     'path_cloud_avatar' => 'foods/avatar/',
     'path_cloud_product' => 'foods/product/',
-    'path_parent' => 0,
 
     'user_role' => [
         1 => 'Admin',
@@ -25,4 +24,12 @@ return [
     'base_repository' => [
         'limit' => 10,
     ],
+
+    'paginate' => 5,
+    'parent' => 0,
+
+    'category_parent' => [
+    	1 => 'Foods',
+    	2 => 'Drinks',
+    ]
 ];

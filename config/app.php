@@ -149,8 +149,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
-        JD\Cloudder\CloudderServiceProvider::class,
-
+        Maatwebsite\Excel\ExcelServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -214,6 +213,7 @@ return [
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'Cloudder' => JD\Cloudder\Facades\Cloudder::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
     ],
 
 ];

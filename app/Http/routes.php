@@ -30,27 +30,52 @@ Route::group(['middleware' => 'web'], function() {
         'uses' =>'UserController@logout'
     ]);
 
-    Route::get('login/{social}', ['as' => 'login.{social}', 'uses' => 'SocialAccountController@redirectToProvider']);
+    Route::get('login/{social}', [
+        'as' => 'login.{social}', 
+        'uses' => 'SocialAccountController@redirectToProvider'
+    ]);
 
-    Route::get('login/{social}/callback', ['as' => 'login.{social}.callback', 'uses' => 'SocialAccountController@handleProviderCallback']);
+    Route::get('login/{social}/callback', [
+        'as' => 'login.{social}.callback', 
+        'uses' => 'SocialAccountController@handleProviderCallback'
+    ]);
 });
 
-Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function() {
+Route::group(['middleware' => 'admin', 'prefix' => 'admin', 'namespace' => 'Admin'], function() {
     Route::get('/',[
         'as' => 'admin',
-        'uses' => 'Admin\AdminController@index',
+        'uses' => 'AdminController@index',
     ]);
 
     Route::put('{id}', [
         'as' => 'admin.update',
-        'uses' => 'Admin\AdminController@update',
-    ]);
-    Route::get('{id}/profile/', [
-        'as' => 'admin.profile',
-        'uses' => 'Admin\AdminController@profile',
+        'uses' => 'AdminController@update',
     ]);
 
-    Route::resource('users', 'Admin\UserController');
-    Route::resource('products', 'Admin\ProductController');
+    Route::get('{id}/profile/', [
+        'as' => 'admin.profile',
+        'uses' => 'AdminController@profile',
+    ]);
+
+    Route::resource('users', 'UserController');
+
+    Route::resource('products', 'ProductController');
+
+    Route::resource('categories', 'CategoryController', ['except' => 'destroy']);
+
+    Route::post('categories/destroy', [
+        'as' => 'categories.destroy', 
+        'uses' => 'CategoryController@destroy'
+    ]);
+
+    Route::post('categories/importExcel', [
+        'as' => 'categories.importExcel', 
+        'uses' => 'CategoryController@importExcel'
+    ]);
+
+    Route::get('categories/downloadExcel/{type}', [
+        'as' => 'categories.downloadExcel', 
+        'uses' => 'CategoryController@downloadExcel'
+    ]);
 });
 
