@@ -37,14 +37,19 @@ abstract class BaseRepository
 
     public function findBy($column, $option)
     {
-        return $this->model->where($column, $option)->get();
+
+        $data = $this->model->where($column, $option)->get();
+        
+        if (!$data) {
+            throw new Exception(trans('message.create_error'));
+        }
+
+        return $data;
     }
 
     public function paginate($limit)
-    {
-        $paginate = $limit ? $limit : config('common.paginate');
-
-        return $this->model->paginate($paginate);
+    {     
+        return $this->model->paginate($limit); 
     }
 
     public function lists($column, $key = null)

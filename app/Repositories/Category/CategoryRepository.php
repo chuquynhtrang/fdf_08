@@ -15,18 +15,8 @@ class CategoryRepository extends BaseRepository implements CategoryRepositoryInt
         $this->model = $category;
     }
 
-    public function all()
+    public function categoryExceptParent($limit, $id)
     {
-        $limit = isset($options['limit']) ? $options['limit'] : config('common.base_repository.limit');
-        $categories = $this->model->paginate($limit);
-
-        return $categories;
-    }
-
-    public function listCategories()
-    {
-        $listCategories = Category::pluck('name', 'id')->all();
-
-        return $listCategories;
+    	return $this->model->where('parent_id', '<>', $id)->paginate($limit);
     }
 }
