@@ -11,25 +11,32 @@
 |
 */
 Route::group(['middleware' => 'web'], function() {
+    Route::get('language/{lang}', ['as' => 'lang', 'uses' => 'HomeController@changeLanguage']);
+
     Route::get('/' , ['as' =>'home', 'uses' => 'HomeController@index']);
+
     Route::post('login', [
         'as' => 'login',
         'uses' => 'UserController@login'
     ]);
+
     Route::post('register', [
         'as' => 'register',
         'uses' => 'UserController@register'
     ]);
+
     Route::get('logout', [
         'as' => 'logout',
         'uses' =>'UserController@logout'
     ]);
+
     Route::get('login/{social}', ['as' => 'login.{social}', 'uses' => 'SocialAccountController@redirectToProvider']);
+
     Route::get('login/{social}/callback', ['as' => 'login.{social}.callback', 'uses' => 'SocialAccountController@handleProviderCallback']);
 });
 
 Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function() {
-    Route::get('index',[
+    Route::get('/',[
         'as' => 'admin',
         'uses' => 'Admin\AdminController@index',
     ]);
@@ -44,6 +51,6 @@ Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function() {
     ]);
 
     Route::resource('users', 'Admin\UserController');
-
+    Route::resource('products', 'Admin\ProductController');
 });
 

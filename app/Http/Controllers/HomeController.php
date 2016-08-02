@@ -5,11 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use Auth;
-use App\Models\User;
 use Response;
 use App\Http\Requests\LoginRequest;
 use App\Repositories\Category\CategoryRepositoryInterface;
 use App\Models\Category;
+use Session;
 
 class HomeController extends Controller
 {
@@ -26,13 +26,19 @@ class HomeController extends Controller
      */
     public function index()
     {
-        try { 
+        try {
             $categoriesParent = $this->categoryRepository->findBy('parent_id', config('common.path_parent'));
             $categoriesChild = $this->categoryRepository->all();
         } catch (Exception $ex) {
             return redirect()->route('home')->withError($ex->getMessage());
         }
-        
+
         return view('home' , compact('categoriesParent', 'categoriesChild'));
+    }
+
+    public function changeLanguage($lang)
+    {
+        Session::put('lang', $lang);
+        return redirect()->back();
     }
 }

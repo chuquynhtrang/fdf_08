@@ -13,4 +13,12 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
     {
         $this->model = $product;
     }
+
+    public function all()
+    {
+        $limit = isset($options['limit']) ? $options['limit'] : config('common.base_repository.limit');
+        $products = $this->model->paginate($limit);
+
+        return $products;
+    }
 }
