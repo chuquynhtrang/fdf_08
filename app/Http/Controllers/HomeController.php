@@ -12,6 +12,7 @@ use App\Repositories\Product\ProductRepositoryInterface;
 use App\Models\Category;
 use App\Models\Product;
 use Session;
+use Cart;
 
 class HomeController extends Controller
 {
@@ -38,7 +39,9 @@ class HomeController extends Controller
 
         $products = $this->productRepository->paginate(config('common.items_per_page'));
 
-        return view('home' , compact('categoriesParent', 'categoriesChild', 'products'));
+        $totalCartItems = Cart::count();
+
+        return view('home' , compact('categoriesParent', 'categoriesChild', 'products', 'totalCartItems'));
     }
 
     public function changeLanguage($lang)

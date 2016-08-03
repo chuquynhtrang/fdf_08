@@ -49,6 +49,26 @@ Route::group(['middleware' => 'web'], function() {
         'as' => 'products.addToCart',
         'uses' => 'ProductController@getAddToCart',
     ]);
+
+    Route::get('get-cart', [
+        'as' => 'products.getCart',
+        'uses' => 'ProductController@getCart',
+    ]);
+
+    Route::put('update-cart/{rowId}', [
+        'as' => 'products.updateCart',
+        'uses' => 'ProductController@updateCart',
+    ]);
+
+    Route::get('delete/{rowId}', [
+        'as' => 'deleteItem',
+        'uses' => 'ProductController@deleteItem',
+    ]);
+
+    Route::get('deleteAllCart', [
+        'as' => 'deleteAllCart',
+        'uses' => 'ProductController@deleteAllCart',
+    ]);
 });
 
 Route::group(['middleware' => 'admin', 'prefix' => 'admin', 'namespace' => 'Admin'], function() {
