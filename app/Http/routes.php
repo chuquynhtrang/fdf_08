@@ -39,6 +39,16 @@ Route::group(['middleware' => 'web'], function() {
         'as' => 'login.{social}.callback', 
         'uses' => 'SocialAccountController@handleProviderCallback'
     ]);
+
+    Route::get('products/{id}', [
+        'as' => 'products.show',
+        'uses' => 'ProductController@show',
+    ]);
+
+    Route::get('add-to-cart/{id}', [
+        'as' => 'products.addToCart',
+        'uses' => 'ProductController@getAddToCart',
+    ]);
 });
 
 Route::group(['middleware' => 'admin', 'prefix' => 'admin', 'namespace' => 'Admin'], function() {

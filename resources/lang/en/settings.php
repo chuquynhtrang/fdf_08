@@ -38,4 +38,5 @@ return [
     'vietnamese' => 'Vietnamese',
     'language' => 'Language',
     'rating' => 'Rating',
+    'shopping_cart' => 'Shopping Cart',
 ];

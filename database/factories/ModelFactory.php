@@ -11,11 +11,15 @@
 |
 */
 
-$factory->define(App\Models\User::class, function (Faker\Generator $faker) {
+$factory->define(App\Models\Product::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
-        'email' => $faker->safeEmail,
-        'password' => bcrypt(str_random(10)),
-        'remember_token' => str_random(10),
+        'description' => $faker->text(),
+        'image' => '/images/pizza.jpg',
+        'price' => $faker->numberBetween(10, 999),
+        'status' => $faker->randomElement([1, 2, 3]), 
+        'quantity' => $faker->numberBetween(10, 999),
+        'rating' => $faker->numberBetween(1, 5),   
+        'category_id' => $faker->randomElement([1, 2]),  
     ];
 });

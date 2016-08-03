@@ -38,7 +38,7 @@
                 <div class="panel-body">
 
                     @include ('common.errors')
-                    
+
                     {!! Form::open([
                         'method' => 'POST', 
                         'route' => 'admin.categories.store', 
