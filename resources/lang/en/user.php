@@ -2,7 +2,7 @@
 return [
     'edit_profile' => 'Edit Profile',
     'choose_avatar' => 'Upload a different photo...',
-    'name' => 'Name', 
+    'name' => 'Name',
     'password' => 'Password',
     'information' => 'Personal Information',
     'address' => 'Address',

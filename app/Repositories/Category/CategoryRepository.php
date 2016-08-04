@@ -19,4 +19,11 @@ class CategoryRepository extends BaseRepository implements CategoryRepositoryInt
     {
     	return $this->model->where('parent_id', '<>', $id)->paginate($limit);
     }
+
+    public function listCategories()
+    {
+        $listCategories = Category::pluck('name', 'id')->all();
+
+        return $listCategories;
+    }
 }

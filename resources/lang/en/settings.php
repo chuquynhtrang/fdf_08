@@ -47,4 +47,6 @@ return [
     'totalPrice' => 'Total Real Price: ',
     'tax' => 'Tax:',
     'total' => 'Total:',
+    'edit_product' => 'Edit Product',
+    'delete_all' => 'Delete all',
 ];

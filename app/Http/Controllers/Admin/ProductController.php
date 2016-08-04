@@ -13,6 +13,7 @@ use App\Repositories\Category\CategoryRepositoryInterface;
 use App\Repositories\User\UserRepository;
 use App\Models\Product;
 use App\Http\Requests\ProductRequest;
+use App\Http\Requests\UpdateProductRequest;
 use Cloudder;
 
 class ProductController extends Controller
@@ -94,7 +95,10 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = $this->productRepository->show($id);
+        $listCategories = $this->categoryRepository->listCategories();
+
+        return view('admin.product.edit', compact('product', 'listCategories'));
     }
 
     /**
@@ -104,9 +108,24 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateProductRequest $request, $id)
     {
-        //
+        $product = $request->only('name', 'description', 'price', 'status', 'quantity', 'rating', 'category_id');
+
+        if ($request->hasFile('image')) {
+            $fileName = $request->image;
+            Cloudder::upload($fileName, config('common.path_cloud_product')."$request->name");
+            $product['image'] = Cloudder::getResult()['url'];
+        }
+
+        try {
+            $data = $this->productRepository->update($product, $id);
+
+            return redirect()->route('admin.products.index');
+        } catch (Exception $e) {
+
+            return redirect()->route('admin.products.index')->withError($e->getMessage());
+        }
     }
 
     /**
@@ -115,8 +134,17 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $ids = $request->checkbox;
+
+        try {
+            $data = $this->productRepository->delete($ids);
+
+            return redirect()->route('admin.products.index');
+        } catch (Exception $e) {
+
+            return redirect()->route('admin.products.index')->withError($e->getMessage());
+        }
     }
 }
