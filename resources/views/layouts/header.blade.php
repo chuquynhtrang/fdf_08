@@ -2,7 +2,9 @@
     <nav id="menu" class="navbar navbar-static-top">
         <div class="container-fluid">
             <div class="navbar-header logo-header">
-                <img class ="navbar-brand" id="logo" src="{{ asset('images/logo1.png') }}"/>
+                <a href="{{ route('home') }}">
+                    <img class ="navbar-brand" id="logo" src="{{ asset('images/logo1.png') }}"/>
+                </a>
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -25,10 +27,12 @@
                 <ul class="nav navbar-nav navbar-right login-register">
                     @if (Auth::guest())
                         <li>
-                            <a href="#"> 
+                            <a href="{{ route('products.getCart') }}"> 
                                 <i class="fa fa-shopping-cart"></i> {{ trans('settings.shopping_cart') }} 
                                 <span class="badge">
-                                    {{ Session::has('cart') ? Session::get('cart')->totalQuantity : '' }}
+                                    @if (isset($totalCartItems))
+                                        {{ $totalCartItems }}
+                                    @endif
                                 </span>
                             </a>
                         </li>
@@ -57,6 +61,16 @@
                             </ul>
                         </li>
                     @else
+                         <li id="header-cart">
+                            <a href="{{ route('products.getCart') }}"> 
+                                <i class="fa fa-shopping-cart"></i> {{ trans('settings.shopping_cart') }} 
+                                <span class="badge">
+                                    @if (isset($totalCartItems))
+                                        {{ $totalCartItems }}
+                                    @endif
+                                </span>
+                            </a>
+                        </li>
                         <li class="dropdown" id="avatar">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 {!! Html::image(Auth::user()->avatar, null , ['id' => 'profile_avatar']) !!}

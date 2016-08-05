@@ -15,7 +15,7 @@
                 <p>{{ $product->description }}</p>
                 <hr>
                 <h4> {{ trans('product.price') }} </h4>
-                <div id="price">
+                <div class="price">
                     {{ config('common.currency') }} {{ $product-> price }}
                 </div>
                 <hr>

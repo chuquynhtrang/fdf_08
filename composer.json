@@ -13,7 +13,8 @@
         "doctrine/dbal": "^2.5",
         "cloudinary/cloudinary_php": "dev-master",
         "jrm2k6/cloudder": "0.2.*",
-        "maatwebsite/excel": "~2.1.0"
+        "maatwebsite/excel": "~2.1.0",
+        "gloudemans/shoppingcart": "^2.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

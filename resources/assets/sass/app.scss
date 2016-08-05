@@ -216,6 +216,7 @@ a {
 .price {
     font-weight: bold;
     font-size: 16px;
+    color: red;
 }
 
 .product_details {
@@ -223,8 +224,26 @@ a {
     height: 360px;
 }
 
-#price {
-    font-weight: bold;
-    color: red;
-    font-size: 30px;
+.data-image {
+    text-align: center;
+    .image-item {
+        width: 120px;
+        height: 100px;
+    }
+}
+
+.input-quantity {
+    width: 30px;
+}
+
+table thead th{
+    background-color: #CFD8DC;
+}
+
+#table-price {
+    background-color: #F1F8E9;
+}
+
+#header-cart {
+    margin-right: 30px;
 }
