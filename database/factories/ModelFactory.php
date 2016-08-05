@@ -16,7 +16,7 @@ $factory->define(App\Models\Product::class, function (Faker\Generator $faker) {
         'name' => $faker->name,
         'description' => $faker->text(),
         'image' => '/images/pizza.jpg',
-        'price' => $faker->numberBetween(10, 999),
+        'price' => $faker->numberBetween(10, 100),
         'status' => $faker->randomElement([1, 2, 3]), 
         'quantity' => $faker->numberBetween(10, 999),
         'rating' => $faker->numberBetween(1, 5),   

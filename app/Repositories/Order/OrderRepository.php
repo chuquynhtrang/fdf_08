@@ -1,0 +1,33 @@
+<?php
+
+namespace App\Repositories\Order;
+
+use Auth;
+use App\Models\Order;
+use App\Repositories\BaseRepository;
+use App\Repositories\Order\OrderRepositoryInterface;
+use Cart;
+
+class OrderRepository extends BaseRepository implements OrderRepositoryInterface
+{
+
+    public function __construct(Order $order)
+    {
+        $this->model = $order;
+    }
+
+    public function store()
+    {
+        $order = new Order();
+        $order['user_id'] = Auth::user()->id;
+        $order['price'] = Cart::total();
+        $order['status'] = config('common.unpaid');
+        $order['shipping_address'] = Auth::user()->address;
+
+        if (!$order->save()) {
+            throw new Exception(trans('message.update_error'));
+        }
+
+        return $order;
+    }
+}

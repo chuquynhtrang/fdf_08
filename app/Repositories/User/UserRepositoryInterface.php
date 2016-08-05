@@ -11,5 +11,5 @@ interface UserRepositoryInterface
     public function update($inputs, $id);
     public function find($id);
     public function paginate($limit);
-    public function store($inputs);
+    public function updateAddress($address, $id);
 }

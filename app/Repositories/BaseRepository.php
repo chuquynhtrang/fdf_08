@@ -105,26 +105,4 @@ abstract class BaseRepository
     {
         return $this->model->where('$column LIKE $value');
     }
-
-    public function store($input)
-    {
-        $data = $this->model->create($input);
-
-        if (!$data) {
-            throw new Exception(trans('message.create_error'));
-        }
-
-        return $data;
-    }
-
-    public function show($id = null)
-    {
-        $data = $this->model->find($id);
-
-        if (!$data) {
-            throw new Exception(trans('message.show_error'));
-        }
-
-        return $data;
-    }
 }

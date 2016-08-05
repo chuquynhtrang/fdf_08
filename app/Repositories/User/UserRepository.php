@@ -20,4 +20,15 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
 
         return $users;
     }
+
+    public function updateAddress($address, $id)
+    {
+        $data = $this->model->where('id', $id)->update(['address' => $address]);
+
+        if (!$data) {
+            throw new Exception(trans('message.update_error'));
+        }
+
+        return $data;
+    }
 }

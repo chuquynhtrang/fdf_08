@@ -79,4 +79,15 @@ class ProductController extends Controller
 
         return redirect()->route('products.getCart');
     }
+
+    public function checkout()
+    {
+        $totalCartItems = Cart::count();
+        $products = Cart::content();
+        $totalPrice = Cart::subtotal();
+        $tax = Cart::tax();
+        $totalIncludeTax = Cart::total();
+        
+        return view('product.checkout', compact('totalCartItems', 'products', 'totalPrice', 'tax', 'totalIncludeTax'));
+    }
 }

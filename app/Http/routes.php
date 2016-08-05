@@ -69,6 +69,21 @@ Route::group(['middleware' => 'web'], function() {
         'as' => 'deleteAllCart',
         'uses' => 'ProductController@deleteAllCart',
     ]);
+
+    Route::get('checkout', [
+        'as' => 'checkout',
+        'uses' => 'ProductController@checkout',
+    ]);
+
+    Route::put('updateAddress', [
+        'as' => 'updateAddress',
+        'uses' => 'UserController@updateAddress',
+    ]);
+
+    Route::get('order', [
+        'as' => 'order',
+        'uses' => 'OrderController@store',
+    ]);
 });
 
 Route::group(['middleware' => 'admin', 'prefix' => 'admin', 'namespace' => 'Admin'], function() {
