@@ -31,12 +31,12 @@ Route::group(['middleware' => 'web'], function() {
     ]);
 
     Route::get('login/{social}', [
-        'as' => 'login.{social}', 
+        'as' => 'login.{social}',
         'uses' => 'SocialAccountController@redirectToProvider'
     ]);
 
     Route::get('login/{social}/callback', [
-        'as' => 'login.{social}.callback', 
+        'as' => 'login.{social}.callback',
         'uses' => 'SocialAccountController@handleProviderCallback'
     ]);
 
@@ -87,24 +87,34 @@ Route::group(['middleware' => 'admin', 'prefix' => 'admin', 'namespace' => 'Admi
         'uses' => 'AdminController@profile',
     ]);
 
-    Route::resource('users', 'UserController');
+    Route::resource('users', 'UserController', ['except' => 'destroy']);
 
-    Route::resource('products', 'ProductController');
+    Route::resource('products', 'ProductController', ['except' => 'destroy']);
 
     Route::resource('categories', 'CategoryController', ['except' => 'destroy']);
 
+    Route::post('users/destroy', [
+        'as' => 'users.destroy',
+        'uses' => 'UserController@destroy'
+    ]);
+
     Route::post('categories/destroy', [
-        'as' => 'categories.destroy', 
+        'as' => 'categories.destroy',
         'uses' => 'CategoryController@destroy'
     ]);
 
+    Route::post('products/destroy', [
+        'as' => 'products.destroy',
+        'uses' => 'ProductController@destroy'
+    ]);
+
     Route::post('categories/importExcel', [
-        'as' => 'categories.importExcel', 
+        'as' => 'categories.importExcel',
         'uses' => 'CategoryController@importExcel'
     ]);
 
     Route::get('categories/downloadExcel/{type}', [
-        'as' => 'categories.downloadExcel', 
+        'as' => 'categories.downloadExcel',
         'uses' => 'CategoryController@downloadExcel'
     ]);
 });

@@ -24,36 +24,36 @@
                 <div class="panel-body">
 
                     @include ('common.errors')
-                    
+
                     {!! Form::model($category, [
-                        'method' => 'PUT', 
-                        'route' => ['admin.categories.update', $category->id], 
+                        'method' => 'PUT',
+                        'route' => ['admin.categories.update', $category->id],
                         'class' => 'form-horizontal',
                     ]) !!}
-                        <div class="form-group"> 
+                        <div class="form-group">
                             {!! Form::label('name', trans('category.name'), [
                                 'class' => 'control-label',
                             ]) !!}
                             {!! Form::text('name', $category['name'], [
-                                'class' => 'form-control', 
+                                'class' => 'form-control',
                                 'autofocus',
                             ]) !!}
                         </div>
 
-                        <div class="form-group"> 
+                        <div class="form-group">
                             {!! Form::label('parent_id', trans('category.parent'), [
                                 'class' => 'control-label',
                             ]) !!}
-                            {!! Form::select('parent_id', 
-                                config('common.category_parent'), 
-                                $category['parent_id'], 
-                                ['class' => 'form-control']) 
+                            {!! Form::select('parent_id',
+                                config('common.category_parent'),
+                                $category['parent_id'],
+                                ['class' => 'form-control'])
                             !!}
                         </div>
 
                         <div class="form-group">
                             {!! Form::button('<i class="fa fa-edit"></i>&nbsp;' . trans('category.update'), [
-                                'type' => 'submit', 
+                                'type' => 'submit',
                                 'class' => 'btn btn-success btn-md',
                             ]) !!}
                         </div>

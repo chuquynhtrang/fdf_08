@@ -114,10 +114,12 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
+        $ids = $request->checkbox;
+
         try {
-            $data = $this->userRepository->delete($id);
+            $data = $this->userRepository->delete($ids);
 
             return redirect()->route('admin.users.index');
         } catch (Exception $e) {

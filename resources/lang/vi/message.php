@@ -9,4 +9,3 @@ return [
     'show_error' => 'Hiển thị lỗi',
     'find_error' => 'Tìm kiếm lỗi',
 ];
-

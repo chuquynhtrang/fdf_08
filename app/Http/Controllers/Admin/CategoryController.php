@@ -28,7 +28,7 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = $this->categoryRepository->categoryExceptParent(config('common.paginate'), config('common.parent'));
-    
+
         return view('admin.category.index', compact('categories'));
     }
 
@@ -132,7 +132,7 @@ class CategoryController extends Controller
     public function downloadExcel($type)
     {
         $data  = Category::get()->toArray();
-        
+
         return Excel::create('fileDownloadCategory', function ($excel) use ($data) {
             $excel->sheet('mySheet', function ($sheet) use ($data) {
                 $sheet->fromArray($data);
