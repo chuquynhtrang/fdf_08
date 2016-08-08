@@ -23,8 +23,8 @@ class Product extends Model
         return $this->hasMany(Comment::class);
     }
 
-    public function lineItem()
+    public function lineItems()
     {
-        return $this->hasOne(LineItem::class);
+        return $this->hasMany(LineItem::class);
     }
 }

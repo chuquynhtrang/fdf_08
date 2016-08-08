@@ -32,5 +32,16 @@ class LineItemRepository extends BaseRepository implements LineItemRepositoryInt
                 throw new Exception(trans('message.update_error'));
             }
         }
+
+        return $lineItem;
+    }
+
+    public function orderByBestSelling()
+    {
+        return $this->model->join('products', 'products.id', '=', 'line_items.product_id')
+                ->groupBy('product_id')
+                ->selectRaw('*, sum(quantity_product) as sum')
+                ->orderBy('sum', 'desc')
+                ->paginate(config('common.items_per_page'));
     }
 }

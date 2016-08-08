@@ -41,7 +41,7 @@ abstract class BaseRepository
         $data = $this->model->where($column, $option)->get();
 
         if (!$data) {
-            throw new Exception(trans('message.create_error'));
+            throw new Exception(trans('message.find_error'));
         }
 
         return $data;
@@ -112,6 +112,6 @@ abstract class BaseRepository
 
     public function search($column, $value)
     {
-        return $this->model->where('$column LIKE $value');
+        return $this->model->where('$column LIKE "%$value%"');
     }
 }

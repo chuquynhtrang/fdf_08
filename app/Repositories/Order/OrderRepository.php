@@ -30,4 +30,11 @@ class OrderRepository extends BaseRepository implements OrderRepositoryInterface
 
         return $order;
     }
+
+    public function orderDetails($id)
+    {
+        $order = $this->model->with('lineItems')->find($id);
+
+        return $order;
+    }
 }

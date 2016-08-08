@@ -9,6 +9,7 @@ use Cart;
 use Auth;
 use App\Repositories\Order\OrderRepositoryInterface;
 use App\Repositories\LineItem\LineItemRepositoryInterface;
+use App\Repositories\Product\ProductRepositoryInterface;
 use DB;
 use Mail;
 
@@ -16,14 +17,17 @@ class OrderController extends Controller
 {
     private $orderRepository;
     private $lineItemRepository;
+    private $productRepository;
 
     public function __construct(
         OrderRepositoryInterface $orderRepository,
-        LineItemRepositoryInterface $lineItemRepository
+        LineItemRepositoryInterface $lineItemRepository,
+        ProductRepositoryInterface $productRepository
     )
     {
         $this->orderRepository = $orderRepository;
         $this->lineItemRepository = $lineItemRepository;
+        $this->productRepository = $productRepository;
     }
 
     public function store()
@@ -33,7 +37,15 @@ class OrderController extends Controller
             $order = $this->orderRepository->storeOrder();
             $orderId = $order->id;
 
-            $this->lineItemRepository->save($orderId);
+            $lineItem = $this->lineItemRepository->save($orderId);
+            $quantity = $lineItem->quantity_product;
+
+            $product = $this->productRepository->find($lineItem->product_id);
+            
+            $quantityRest = $product->quantity - $lineItem->quantity_product;
+
+            $this->productRepository->update(['quantity' => $quantityRest], $product->id);
+            
             DB::commit();
             Cart::destroy();
         } catch (Exception $e) {
