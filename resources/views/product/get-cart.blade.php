@@ -4,10 +4,10 @@
     @include('modals.login')
     @include('modals.register')
 
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
             <div class="col-lg-9">
-                <table class="table table-striped table-bordered table-hover">
+                <table class="table table-bordered table-hover">
                     <thead>
                         <tr>
                             <th></th>
@@ -72,27 +72,47 @@
                 </table>
             </div>
             <div class="col-lg-3">
-                <table class="table table-bordered" id="table-price">
-                    <tr>
-                        <td>
-                            <strong> {{ trans('settings.totalPrice') }} </strong>
-                            <span class="price">{{ $totalPrice }}</span>
-                            <hr>
-                            <strong> {{ trans('settings.tax') }}</strong>
-                            <span class="price">{{ $tax }}</span>
-                            <hr>
-                            <strong> {{ trans('settings.total') }} </strong>
-                            <span class="price">{{ $totalIncludeTax }}</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a href="#" class="btn btn-success btn-lg pull-right"> 
-                                {{ trans('settings.order') }} 
-                            </a>
-                        </td>
-                    </tr>
-                </table>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <ul class="order-summary">
+                            <li>
+                                <span class="label-summary">
+                                    {{ trans('settings.quantity') }}
+                                </span>
+                                <span class="value-summary">
+                                    {{ $totalCartItems }}
+                                </span>
+                            </li>
+                            <li>
+                                <span class="label-summary">
+                                    {{ trans('settings.totalPrice') }}
+                                </span>
+                                <span class="value-summary">
+                                    {{ $totalPrice }}
+                                </span>
+                            </li>
+                            <li>
+                                <span class="label-summary">
+                                    {{ trans('settings.tax') }}
+                                </span>
+                                <span class="value-summary">
+                                    {{ $tax }}
+                                </span>
+                            </li>
+                        </ul>
+                        <hr>
+                        <div class="total">
+                            <span class="label-total"> {{ trans('settings.total') }} </span>
+                            <span class="value-total">
+                                {{ $totalIncludeTax }}
+                            </span>
+                        </div>
+                        <a href="{{ route('checkout') }}" 
+                            class="btn btn-success btn-lg pull-right"> 
+                            {{ trans('settings.order') }} 
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -10,14 +10,16 @@ use App\Models\User;
 use Response;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
+use App\Repositories\User\UserRepositoryInterface;
 
 class UserController extends Controller
 {
-    /**
-    * Display a listing of the resource.
-    *
-    * @return \Illuminate\Http\Response
-    */
+    private $userRepository;
+
+    public function __construct(UserRepositoryInterface $userRepository)
+    {
+        $this->userRepository = $userRepository;
+    }
 
     public function login(LoginRequest $request)
     {
@@ -56,5 +58,13 @@ class UserController extends Controller
 
             return Response::json(['success' => true, 'url' => route('home')]);
         }
+    }
+
+    public function updateAddress(Request $request)
+    {
+        $address = $request->address;
+        $this->userRepository->updateAddress($address, Auth::user()->id);
+
+        return redirect()->route('checkout');
     }
 }

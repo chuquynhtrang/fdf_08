@@ -247,3 +247,52 @@ table thead th{
 #header-cart {
     margin-right: 30px;
 }
+
+.name {
+    width: 91%;
+    padding: 10px 10px 0px 0px;
+}
+
+.order-items {
+    box-sizing: border-box;
+    .order-item {
+        margin: 0 0 15px;
+        display: table;
+        width: 100%;
+        div {
+            display: table-cell;
+        }
+    }
+}
+
+.order-summary {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 0 -15px;
+    li {
+        margin: 15px 0;
+        .label-summary {
+            margin: 0 15px;
+            color: #999999;
+            font-size: 14px;
+        }
+        .value-summary {
+            float: right;
+        }
+    }
+}
+
+.total {
+    font-size: 30px;
+    .label-total { 
+        font-weight: bold;
+    }
+    .value-total {
+        color: red;
+        float: right;
+    }
+}
+
+#information {
+    display: none;
+}
