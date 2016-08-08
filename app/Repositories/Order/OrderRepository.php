@@ -16,7 +16,7 @@ class OrderRepository extends BaseRepository implements OrderRepositoryInterface
         $this->model = $order;
     }
 
-    public function store()
+    public function storeOrder()
     {
         $order = new Order();
         $order['user_id'] = Auth::user()->id;

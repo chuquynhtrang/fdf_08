@@ -284,7 +284,7 @@ table thead th{
 
 .total {
     font-size: 30px;
-    .label-total { 
+    .label-total {
         font-weight: bold;
     }
     .value-total {
@@ -295,4 +295,59 @@ table thead th{
 
 #information {
     display: none;
+}
+
+.comment {
+    margin-left: 379px;
+}
+
+#comment-message ,#commentProduct {
+    display: none;
+}
+
+.comments-list {
+    padding-top: 20px;
+}
+
+.commentId {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #dadada;
+}
+
+.comment_avatar {
+    float: left;
+    margin-right: 20px;
+    .user-comment {
+        height: 48px;
+    }
+}
+
+.comment_content {
+    overflow: hidden;
+    .comment_text {
+        color: #3a3a3a;
+        margin-bottom: 10px;
+    }
+    .comment-info {
+        color: #acacac;
+        font-size: 12px;
+    }
+
+    .comment-info > * {
+        display: inline-block;
+    }
+
+    .comment-author {
+        color: #3a3a3a;
+    }
+
+    .comment-time {
+        margin-left: 10px;
+    }
+
+    .comment-rating {
+        display: inline-block;
+        margin: 0 10px;
+    }
 }

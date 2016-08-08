@@ -55,4 +55,12 @@ return [
     'order_information' => 'Order Information',
     'edit_product' => 'Edit Product',
     'delete_all' => 'Delete all',
+    'comment_facebook' => 'Comment By Facebook',
+    'comment' => 'Comment',
+    'to' => 'To',
+    'date' => 'Date: ',
+    'required_login' => 'You need login or register to comment',
+    'comment_use_facebook' => 'Comment By Facebook',
+    'suggests' => 'Suggests',
+    'name_product' => 'Name Product',
 ];

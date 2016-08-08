@@ -84,6 +84,19 @@ Route::group(['middleware' => 'web'], function() {
         'as' => 'order',
         'uses' => 'OrderController@store',
     ]);
+
+    Route::post('products/{id}/comment', [
+        'as' => 'comment',
+        'uses' => 'ProductController@getComments',
+    ]);
+
+    Route::resource('users', 'SuggestController', [
+        'only' => [
+            'create',
+            'update',
+            'store',
+        ],
+    ]);
 });
 
 Route::group(['middleware' => 'admin', 'prefix' => 'admin', 'namespace' => 'Admin'], function() {
