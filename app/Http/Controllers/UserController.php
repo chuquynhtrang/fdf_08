@@ -14,6 +14,7 @@ use App\Repositories\User\UserRepositoryInterface;
 use App\Repositories\Order\OrderRepositoryInterface;
 use App\Http\Requests\UserRequest;
 use Cloudder;
+use Mail;
 
 class UserController extends Controller
 {
@@ -124,5 +125,10 @@ class UserController extends Controller
         $order = $this->orderRepository->find($orderId);
 
         return view('user.show_order', compact('order'));
+    }
+
+    public function showResetForm()
+    {
+        return view('auth.passwords.email');
     }
 }

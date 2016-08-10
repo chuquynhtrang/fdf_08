@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-@include('admin.sidebar')
     <div id="page-wrapper">
         <div class="container">
             <div class="row">

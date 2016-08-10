@@ -43,6 +43,9 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 {!! Form::submit(trans('settings.login'), ['class' => 'btn btn-primary']) !!}
+                                <a href="{{ route('password.reset') }}" class="forgot-password">
+                                    {{ trans('settings.forgot_your_password') }}
+                                </a>
                             </div>
                         </div>
                     {!! Form::close() !!}

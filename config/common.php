@@ -35,6 +35,7 @@ return [
 
     'items_per_page' => 6,
     'currency' => '$',
-    
+
     'none' => 0,
+    'unpaid' => 0,
 ];

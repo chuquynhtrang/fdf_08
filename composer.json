@@ -14,7 +14,9 @@
         "cloudinary/cloudinary_php": "dev-master",
         "jrm2k6/cloudder": "0.2.*",
         "maatwebsite/excel": "~2.1.0",
-        "gloudemans/shoppingcart": "^2.1"
+        "gloudemans/shoppingcart": "^2.1",
+        "wataridori/chatwork-sdk": "^0.1.7",
+        "guzzlehttp/guzzle": "~5.3|~6.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

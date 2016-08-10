@@ -21,7 +21,7 @@
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="{{ route('admin.suggests.index') }}">
                 <i class="fa fa-bell"></i> {{ trans('settings.suggests') }}
                 <span class="badge">
                     @if (isset($countSuggest))
