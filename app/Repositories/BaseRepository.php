@@ -39,7 +39,7 @@ abstract class BaseRepository
     {
 
         $data = $this->model->where($column, $option)->get();
-        
+
         if (!$data) {
             throw new Exception(trans('message.create_error'));
         }
@@ -48,8 +48,8 @@ abstract class BaseRepository
     }
 
     public function paginate($limit)
-    {     
-        return $this->model->paginate($limit); 
+    {
+        return $this->model->paginate($limit);
     }
 
     public function lists($column, $key = null)
@@ -99,6 +99,15 @@ abstract class BaseRepository
             DB::rollBack();
             throw $e;
         }
+    }
+
+    public function store($input)
+    {
+        $data = $this->model->create($input);
+        if (!$data) {
+            throw new Exception(trans('message.create_error'));
+        }
+        return $data;
     }
 
     public function search($column, $value)

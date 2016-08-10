@@ -9,7 +9,7 @@ use App\Models\Category;
 class Suggest extends Model
 {
     protected $fillable = [
-        'user_id', 'category_id', 'name',
+        'user_id', 'category_id', 'name', 'price', 'image', 'description',
     ];
 
     public function user()

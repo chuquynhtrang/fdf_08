@@ -82,7 +82,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $user = $this->userRepository->show($id);
+        $user = $this->userRepository->find($id);
 
         return view('admin.user.edit', compact('user'));
     }

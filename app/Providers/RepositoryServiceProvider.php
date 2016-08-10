@@ -14,6 +14,10 @@ use App\Repositories\Order\OrderRepository;
 use App\Repositories\Order\OrderRepositoryInterface;
 use App\Repositories\LineItem\LineItemRepositoryInterface;
 use App\Repositories\LineItem\LineItemRepository;
+use App\Repositories\Comment\CommentRepository;
+use App\Repositories\Comment\CommentRepositoryInterface;
+use App\Repositories\Suggest\SuggestRepository;
+use App\Repositories\Suggest\SuggestRepositoryInterface;
 
 class RepositoryServiceProvider extends ServiceProvider
 {
@@ -39,5 +43,7 @@ class RepositoryServiceProvider extends ServiceProvider
         App::bind(CategoryRepositoryInterface::class, CategoryRepository::class);
         App::bind(OrderRepositoryInterface::class, OrderRepository::class);
         App::bind(LineItemRepositoryInterface::class, LineItemRepository::class);
+        App::bind(CommentRepositoryInterface::class, CommentRepository::class);
+        App::bind(SuggestRepositoryInterface::class, SuggestRepository::class);
     }
 }

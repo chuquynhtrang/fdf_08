@@ -9,14 +9,17 @@ use App\Models\User;
 use App\Http\Requests\UserRequest;
 use Cloudder;
 use App\Repositories\User\UserRepositoryInterface;
+use App\Repositories\Suggest\SuggestRepositoryInterface;
 
 class AdminController extends Controller
 {
     private $userRepository;
+    private $suggestRepository;
 
-    public function __construct(UserRepositoryInterface $userRepository)
+    public function __construct(UserRepositoryInterface $userRepository, SuggestRepositoryInterface $suggestRepository)
     {
         $this->userRepository = $userRepository;
+        $this->suggestRepository = $suggestRepository;
     }
 
     /**
@@ -27,8 +30,9 @@ class AdminController extends Controller
     public function index()
     {
         $users = $this->userRepository->all();
+        $countSuggest = $this->suggestRepository->count();
 
-        return view('admin.user.index', compact('users'));
+        return view('admin.user.index', compact('users', 'countSuggest'));
     }
 
     public function profile($id)

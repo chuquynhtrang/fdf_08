@@ -1,7 +1,8 @@
 <?php
-namespace App\Repositories\Order;
 
-interface OrderRepositoryInterface
+namespace App\Repositories\Comment;
+
+interface CommentRepositoryInterface
 {
     public function count();
     public function all();
@@ -14,5 +15,4 @@ interface OrderRepositoryInterface
     public function update($inputs, $id);
     public function delete($ids);
     public function search($column, $value);
-    public function storeOrder();
 }

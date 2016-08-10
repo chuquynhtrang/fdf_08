@@ -27,8 +27,8 @@
                 <ul class="nav navbar-nav navbar-right login-register">
                     @if (Auth::guest())
                         <li>
-                            <a href="{{ route('products.getCart') }}"> 
-                                <i class="fa fa-shopping-cart"></i> {{ trans('settings.shopping_cart') }} 
+                            <a href="{{ route('products.getCart') }}">
+                                <i class="fa fa-shopping-cart"></i> {{ trans('settings.shopping_cart') }}
                                 <span class="badge">
                                     @if (isset($totalCartItems))
                                         {{ $totalCartItems }}
@@ -61,9 +61,16 @@
                             </ul>
                         </li>
                     @else
-                         <li id="header-cart">
-                            <a href="{{ route('products.getCart') }}"> 
-                                <i class="fa fa-shopping-cart"></i> {{ trans('settings.shopping_cart') }} 
+                        @if (Auth::user()->isUser())
+                            <li id="header-suggest">
+                                <a href="{{ route('users.create') }}">
+                                    <i class="fa fa-comment-o" aria-hidden="true">{{ trans('settings.suggests') }}</i>
+                                </a>
+                            </li>
+                        @endif
+                        <li id="header-cart">
+                            <a href="{{ route('products.getCart') }}">
+                                <i class="fa fa-shopping-cart"></i> {{ trans('settings.shopping_cart') }}
                                 <span class="badge">
                                     @if (isset($totalCartItems))
                                         {{ $totalCartItems }}

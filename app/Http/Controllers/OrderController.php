@@ -30,7 +30,7 @@ class OrderController extends Controller
     {
         try {
             DB::beginTransaction();
-            $order = $this->orderRepository->store();
+            $order = $this->orderRepository->storeOrder();
             $orderId = $order->id;
 
             $this->lineItemRepository->save($orderId);
