@@ -56,7 +56,7 @@ class AdminController extends Controller
 
         if ($request->hasFile('avatar')) {
             $filename = $request->avatar;
-            Cloudder::upload($filename, config('common.path_cloud_avatar')."$admin->name");
+            Cloudder::upload($filename, config('common.path_cloud_avatar') . $admin->email);
             $admin->avatar = Cloudder::getResult()['url'];
         }
 

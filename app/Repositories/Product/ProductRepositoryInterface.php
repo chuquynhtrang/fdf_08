@@ -15,4 +15,5 @@ interface ProductRepositoryInterface
     public function update($inputs, $id);
     public function delete($ids);
     public function search($column, $value);
+    public function orderBy($column, $option);
 }

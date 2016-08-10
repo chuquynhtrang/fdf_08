@@ -16,7 +16,7 @@
                     @foreach ($categoriesChild as $categoryChild)
                         @if ($categoryChild->parent_id == $categoryParent->id)
                             <li class="sub-menu">
-                                <a href="#">{{ $categoryChild->name }}</a>
+                                <a href="{{ route('sublink', $categoryChild->link) }}">{{ $categoryChild->name }}</a>
                             </li>
                         @endif
                     @endforeach
@@ -31,11 +31,35 @@
             <div class="row">
                 <div class="col-lg-2"></div>
                 <div class="col-lg-10">
+                    <div class="block-title">
+                        <div class="product-sorting">
+                            <div class="filter-title">
+                                <i class="fa fa-bars filter-title"></i>
+                                {{ trans('settings.filter_by') }}
+                            </div>
+                            <div class="filter-body">
+                                <a href="{{ route('home') }}" class="btn btn-default sorting"> 
+                                    {{ trans('settings.default') }} 
+                                </a>
+                                <a href="{{ route('bestSelling') }}" class="btn btn-default sorting">
+                                    {{ trans('settings.best_selling') }}&nbsp;
+                                    <i class="fa fa-long-arrow-down"></i>
+                                </a>
+                                <a href="{{ route('bestPrice') }}" class="btn btn-default sorting">
+                                    {{ trans('settings.best_price') }}&nbsp;
+                                    <i class="fa fa-long-arrow-down"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
                     <div class="row">
                         @foreach ($products as $product)
                             <div class="col-sm-6 col-md-4">
                                 <div class="thumbnail">
-                                    <img src="{{ $product->image }}" class="image-product">
+                                    <a href="{{ route('products.show', $product->id) }}">
+                                        <img src="{{ $product->image }}" class="image-product">
+                                    </a>
                                     <div class="caption">
                                         <h4>{{ $product->name }}</h4>
                                         <div class="clearfix">
@@ -51,6 +75,9 @@
                                 </div>
                             </div>
                         @endforeach
+                    </div>
+                    <div class="paginate">
+                        {{ $products->render() }}
                     </div>
                 </div>
             </div>

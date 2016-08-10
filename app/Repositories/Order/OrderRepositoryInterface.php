@@ -15,4 +15,5 @@ interface OrderRepositoryInterface
     public function delete($ids);
     public function search($column, $value);
     public function storeOrder();
+    public function orderDetails($id);
 }

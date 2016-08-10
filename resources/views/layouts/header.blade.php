@@ -64,16 +64,18 @@
                         @if (Auth::user()->isUser())
                             <li id="header-suggest">
                                 <a href="{{ route('users.create') }}">
-                                    <i class="fa fa-comment-o" aria-hidden="true">{{ trans('settings.suggests') }}</i>
+                                    <i class="fa fa-comment">&nbsp;{{ trans('settings.suggests') }}</i>
                                 </a>
                             </li>
                         @endif
                         <li id="header-cart">
                             <a href="{{ route('products.getCart') }}">
-                                <i class="fa fa-shopping-cart"></i> {{ trans('settings.shopping_cart') }}
+                                <i class="fa fa-shopping-cart"></i>&nbsp;{{ trans('settings.shopping_cart') }}
                                 <span class="badge">
                                     @if (isset($totalCartItems))
                                         {{ $totalCartItems }}
+                                    @else 
+                                        {{ config('common.none') }}
                                     @endif
                                 </span>
                             </a>
@@ -87,9 +89,13 @@
                             <ul class="dropdown-menu" role="menu">
                                <li>
                                     @if(Auth::user()->isAdmin())
-                                        <a href="{{ route('admin.profile', Auth::user()->id) }}"<i class="fa fa-user"></i> {{ trans('settings.profile') }} </a>
+                                        <a href="{{ route('admin.profile', Auth::user()->id) }}">
+                                            <i class="fa fa-user"></i> {{ trans('settings.profile') }} 
+                                        </a>
                                     @else
-                                        <a href="{{ url('/profile') }}"><i class="fa fa-user"></i> {{ trans('settings.profile') }} </a>
+                                        <a href="{{ route('userProfile', Auth::user()->id) }}">
+                                            <i class="fa fa-user"></i> {{ trans('settings.profile') }} 
+                                        </a>
                                     @endif
                                 </li>
                                 <li class="divider"></li>

@@ -20,6 +20,6 @@ $factory->define(App\Models\Product::class, function (Faker\Generator $faker) {
         'status' => $faker->randomElement([1, 2, 3]), 
         'quantity' => $faker->numberBetween(10, 999),
         'rating' => $faker->numberBetween(1, 5),   
-        'category_id' => $faker->randomElement([1, 2]),  
+        'category_id' => $faker->randomElement([3, 4, 5, 6]),  
     ];
 });

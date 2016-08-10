@@ -63,4 +63,8 @@ return [
     'comment_use_facebook' => 'Comment By Facebook',
     'suggests' => 'Suggests',
     'name_product' => 'Name Product',
+    'filter_by' => 'FILTER BY',
+    'default' => 'Default',
+    'best_selling' => 'Best Selling',
+    'best_price' => 'Best Price',
 ];

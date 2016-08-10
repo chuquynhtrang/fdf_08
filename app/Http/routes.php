@@ -97,6 +97,41 @@ Route::group(['middleware' => 'web'], function() {
             'store',
         ],
     ]);
+    
+    Route::get('/home/{link}', [
+        'as' => 'sublink',
+        'uses' => 'HomeController@getLink',
+    ]);
+
+    Route::get('/filter/price', [
+        'as' => 'bestPrice',
+        'uses' => 'HomeController@bestPrice',
+    ]);
+
+    Route::get('/filter/selling', [
+        'as' => 'bestSelling',
+        'uses' => 'HomeController@bestSelling',
+    ]);
+
+    Route::get('/user/{id}/profile', [
+        'as' => 'userProfile',
+        'uses' => 'UserController@show',
+    ]);
+
+    Route::put('/user/{id}', [
+        'as' => 'user.update',
+        'uses' => 'UserController@update',
+    ]);
+
+    Route::get('/user/{id}/order-information', [
+        'as' => 'orderInformation',
+        'uses' => 'UserController@orderInformation',
+    ]);
+
+    Route::get('/user/{id}/order-information/{order}',[
+        'as' => 'orderDetails',
+        'uses' => 'UserController@orderDetails',
+    ]);
 });
 
 Route::group(['middleware' => 'admin', 'prefix' => 'admin', 'namespace' => 'Admin'], function() {

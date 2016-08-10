@@ -10,4 +10,6 @@ return [
     'email' => 'Email',
     'cancel' => 'Cancel',
     'update_profile' => 'Update Profile',
+    'shipping_address' => 'Shipping Address',
+    'order_info' => 'Order Information',
 ];

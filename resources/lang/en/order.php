@@ -1,0 +1,28 @@
+<?php
+return [
+    'orders' => 'Orders',
+    'listing' => 'Listing',
+    'table' => 'Order Table',
+    'filter' => 'Filter', 
+    'id' => 'Order ID',
+    'name' => 'Name',
+    'create' => 'Create Order',
+    'add' => 'Add',
+    'new' => 'New Order',
+    'import' => 'Import Excel',
+    'edit' => 'Edit Order',
+    'update' => 'Update',
+    'price' => 'Price',
+    'shipping_address' => 'Shipping Address',
+    'status' => 'Status',
+    'information' => 'Orders Information',
+    'unpaid' => 'Unpaid',
+    'paid' => 'Paid',
+    'cancel' => 'Cancel',
+    'details' => 'Order Details',
+    'product' => 'Product',
+    'quantity' => 'Quantity',
+    'date' => 'Date',
+    'deals_info' => 'Deals Information',
+    'product_id'
+];
