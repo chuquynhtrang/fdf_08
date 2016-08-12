@@ -35,7 +35,12 @@ return [
 
     'items_per_page' => 6,
     'currency' => '$',
-
-    'none' => 0,
     'unpaid' => 0,
+    'none' => 0,
+
+    'order_status' => [
+        0 => 'Unpaid',
+        1 => 'Paid',
+        2 => 'Cancel',
+    ],
 ];

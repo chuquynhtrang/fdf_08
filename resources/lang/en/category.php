@@ -13,4 +13,5 @@ return [
     'import' => 'Import Excel',
     'edit' => 'Edit Category',
     'update' => 'Update',
+    'link' => 'Link',
 ];

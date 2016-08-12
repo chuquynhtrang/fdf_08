@@ -175,6 +175,8 @@ Route::group(['middleware' => 'admin', 'prefix' => 'admin', 'namespace' => 'Admi
         'uses' => 'SuggestController@storeProduct',
     ]);
 
+    Route::resource('orders', 'OrderController');
+
     Route::post('users/destroy', [
         'as' => 'users.destroy',
         'uses' => 'UserController@destroy'
@@ -198,6 +200,11 @@ Route::group(['middleware' => 'admin', 'prefix' => 'admin', 'namespace' => 'Admi
     Route::get('categories/downloadExcel/{type}', [
         'as' => 'categories.downloadExcel',
         'uses' => 'CategoryController@downloadExcel'
+    ]);
+
+    Route::get('orders/downloadExcel/{type}', [
+        'as' => 'orders.downloadExcel',
+        'uses' => 'OrderController@downloadExcel'
     ]);
 });
 
