@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-md-1"></div>
                 <div class="col-md-7 col-md-offset-2">
-                    <div class="panel panel-info">
+                    <div class="panel panel-primary">
                         <div class="panel-heading">
                             <h3 class="panel-title">
                                 {{ trans('settings.edit_product') }}
@@ -27,6 +27,7 @@
                                         {!! Form::text('name', $product->name, [
                                             'class' => 'form-control',
                                             'id' => 'name',
+                                            'autofocus',
                                         ]) !!}
                                     </div>
                                     <div class="form-group">

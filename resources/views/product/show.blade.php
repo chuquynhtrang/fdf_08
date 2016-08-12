@@ -100,6 +100,41 @@
                             <div class="alert alert-danger" role="alert">
                                 {{ trans('settings.required_login') }}
                             </div>
+                            <div class="comments-block">
+                                <div class="comments comments-list">
+                                    @foreach($comments as $comment)
+                                        <div class="commentId">
+                                            <div class="comment_avatar">
+                                                <img src="{{ $comment->user->avatar }}" class="user-comment">
+                                            </div>
+                                            <div class="comment_content">
+                                                <div class="comment_text">
+                                                    <p>{{ $comment->content }}</p>
+                                                </div>
+                                                <div class="comment-info">
+                                                    <span class="comment-from">
+                                                        {{ trans('settings.to') }}
+                                                        <span class="comment-author">
+                                                            {{ $comment->user->name }}
+                                                        </span>
+                                                        <span class="comment-time">
+                                                            {{ trans('settings.date') }}{{ $comment->created_at }}
+                                                        </span>
+                                                        <span class="comment-rating">
+                                                            {{ trans('settings.rating') }}
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                            <div>
+                                <h4>{{ trans('settings.comment_use_facebook') }}</h4>
+                            </div>
+                            <div class="fb-comments" data-href="{{ route('products.show', ['id' => $product['id']]) }}" data-width="1100">
+                            </div>
                         @endif
                     </div>
                 </div>

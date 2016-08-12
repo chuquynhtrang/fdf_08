@@ -24,14 +24,16 @@
                                 @if (count($products) > 0)
                                     @foreach ($products as $product)
                                         {!! Form::open([
-                                            'method' => 'PUT', 
-                                            'route' => ['products.updateCart', $product->rowId], 
+                                            'method' => 'PUT',
+                                            'route' => ['products.updateCart', $product->rowId],
                                         ]) !!}
                                             <tr>
                                                 <td class="data-image">
-                                                    <img src="{{ $product->options->image }}" class="image-item">
+                                                    <a href="{{ route('products.show', $product->id) }}"><img src="{{ $product->options->image }}" class="image-item"></a>
                                                 </td>
-                                                <td>{{ $product->name }}</td>
+                                                <td>
+                                                    <a href="{{ route('products.show', $product->id) }}">{{ $product->name }}</a>
+                                                </td>
                                                 <td>{{ $product->price }}</td>
                                                 <td>
                                                     {!! Form::text('quantity', $product->qty, [
@@ -39,8 +41,8 @@
                                                     ]) !!}
                                                 </td>
                                                 <td>
-                                                    <button type="submit" class="btn btn-primary btn-sm"> 
-                                                        {{ trans('settings.update') }} 
+                                                    <button type="submit" class="btn btn-primary btn-sm">
+                                                        {{ trans('settings.update') }}
                                                     </button>
                                                 </td>
                                                 <td>
@@ -51,7 +53,7 @@
                                             </tr>
                                         {!! Form::close() !!}
                                     @endforeach
-                                @else 
+                                @else
                                     <tr>
                                         <td colspan="6">
                                             {{ trans('settings.no_item') }}
@@ -60,12 +62,12 @@
                                 @endif
                                 <tr>
                                     <td colspan="6">
-                                        <a href="{{ route('home') }}" class="btn btn-success btn-md pull-left"> 
-                                            {{ trans('settings.continue') }} 
+                                        <a href="{{ route('home') }}" class="btn btn-success btn-md pull-left">
+                                            {{ trans('settings.continue') }}
                                         </a>
                                         <div class="pull-right">
-                                            <a href="{{ route('deleteAllCart') }}" class="btn btn-danger btn-md"> 
-                                                {{ trans('settings.deleteAllCart') }} 
+                                            <a href="{{ route('deleteAllCart') }}" class="btn btn-danger btn-md">
+                                                {{ trans('settings.deleteAllCart') }}
                                             </a>
                                         </div>
                                     </td>
@@ -111,10 +113,16 @@
                                 {{ $totalIncludeTax }}
                             </span>
                         </div>
-                        <a href="{{ route('checkout') }}" 
-                            class="btn btn-success btn-lg pull-right"> 
-                            {{ trans('settings.order') }} 
-                        </a>
+                        @if (Auth::check())
+                            <a href="{{ route('checkout') }}"
+                                class="btn btn-success btn-lg pull-right">
+                                {{ trans('settings.order') }}
+                            </a>
+                        @else
+                            <div class="alert alert-danger" role="alert">
+                                {{ trans('settings.you_must_login_to_order') }}
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>

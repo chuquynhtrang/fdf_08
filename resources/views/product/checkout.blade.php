@@ -12,11 +12,13 @@
                                     {{ trans('settings.shipping_address') }}
                                 </div>
                                 <div class="panel-body">
-                                    <p><strong>{{ Auth::user()->name }}</strong></p>
+                                    <p>
+                                        <strong>{{ Auth::user()->name }}</strong>
+                                    </p>
                                     <p>{{ Auth::user()->address }}</p>
                                     <p>{{ Auth::user()->phone }}</p>
-                                    <a href="{{ route('order') }}" 
-                                        class="btn btn-success btn-md" 
+                                    <a href="{{ route('order') }}"
+                                        class="btn btn-success btn-md"
                                         onclick="return confirm('Are you sure order?')">
                                         {{ trans('settings.delivery') }}
                                     </a>
@@ -31,7 +33,7 @@
                             <div class="panel panel-default" id="information">
                                 <div class="panel-body">
                                     {!! Form::open([
-                                        'method' => 'PUT', 
+                                        'method' => 'PUT',
                                         'route' => 'updateAddress',
                                     ]) !!}
                                         <div class="form-group">
@@ -55,8 +57,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-1"></div>
-                        <div class="col-lg-5">
+                        <div class="col-lg-6">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     {{ trans('settings.order_information') }}

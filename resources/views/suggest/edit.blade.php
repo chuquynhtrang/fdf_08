@@ -5,9 +5,9 @@
     <div id="page-wrapper">
         <div class="container">
             <div class="row">
-                <div class="col-md-1"></div>
-                <div class="col-md-7 col-md-offset-2">
-                    <div class="panel panel-info">
+                <div class="col-md-2"></div>
+                <div class="col-md-10">
+                    <div class="panel panel-primary">
                         <div class="panel-heading">
                             <h3 class="panel-title">
                                 {{ trans('settings.update_cart') }}

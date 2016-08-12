@@ -3,6 +3,23 @@
 @section('content')
 @include('admin.sidebar')
     <div class="container">
+        <div class="row page-title-row">
+            <div class="col-md-2"></div>
+            <div class="col-md-4">
+                <h3> {{ trans('category.categories') }} <small>&raquo;
+                    {{ trans('category.listing') }} </small>
+                </h3>
+            </div>
+            <div class="col-md-6 text-right">
+                <a href="{{ route('categories.downloadExcel', 'xlsx') }}">
+                    <button class="btn btn-success"><i class="fa fa-download"></i></button>
+                </a>
+                <a href="{{ route('admin.products.create') }}"
+                    class="btn btn-success">
+                    <i class="fa fa-plus-circle"></i>
+                </a>
+            </div>
+        </div>
         <div class="row">
             <div class="col-md-2"></div>
             <div class="col-md-10">
@@ -10,10 +27,7 @@
                     <div class="panel-heading">
                         <h3 class="panel-title">{{ trans('settings.admin_manager') }}</h3>
                         <div class="pull-right">
-                            <a href="{{ route('admin.products.create') }}"
-                                class="btn btn-default btn-xs button-create">{{ trans('settings.create') }}
-                            </a>
-                            <button class="btn btn-default btn-xs button-create">
+                            <button class="btn btn-default btn-xs button-create btn-filter">
                                 <span class="fa fa-filter"></span>{{ trans('settings.filter') }}
                             </button>
                         </div>
@@ -21,7 +35,7 @@
                     <div class="panel-body">
                         <div class="dataTable_wrapper">
                         {!! Form::open(['method' => 'POST', 'route' => 'products.destroy']) !!}
-                                <table class="table" id="myTable">
+                                <table class="table table-striped table-bordered table-hover">
                                     <thead>
                                         <tr class="filters">
                                             <th>
@@ -57,7 +71,7 @@
                                         @foreach ($products as $key => $product)
                                             <tr>
                                                 <td><input type="checkbox" name="checkbox[]" value="{{ $product->id }}"></td>
-                                                <td>{{ $key + 1 }}</td>
+                                                <td class="data-image"><img src="{{ $product->image}}" class="image-item"></td>
                                                 <td>{{ $product->name }}</td>
                                                 <td>{{ $product->description }}</td>
                                                 <td>{{ $product->price }}</td>
@@ -65,7 +79,7 @@
                                                 <td>{{ $product->quantity }}</td>
                                                 <td>{{ $product->category_id }}</td>
                                                 <td>
-                                                    <a class="btn btn-success" href="{{ route('admin.products.edit', [$product->id]) }}" title="{{ trans('settings.edit') }}">
+                                                    <a class="btn btn-primary" href="{{ route('admin.products.edit', [$product->id]) }}" title="{{ trans('settings.edit') }}">
                                                         <i class="fa fa-edit"></i>
                                                     </a>
                                                 </td>

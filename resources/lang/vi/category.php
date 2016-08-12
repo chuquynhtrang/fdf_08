@@ -13,4 +13,5 @@ return [
     'import' => 'Thêm Excel',
     'edit' => 'Sửa danh muc',
     'update' => 'Cập nhât',
+    'link' => 'Đường dẫn',
 ];

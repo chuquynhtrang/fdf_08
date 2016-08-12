@@ -10,7 +10,7 @@
             <div class="row page-title-row">
                 <div class="col-md-2"></div>
                 <div class="col-md-4">
-                    <h3> {{ trans('order.orders') }} <small>&raquo; 
+                    <h3> {{ trans('order.orders') }} <small>&raquo;
                         {{ trans('order.listing') }} </small>
                     </h3>
                 </div>
@@ -28,7 +28,7 @@
                             {{ trans('order.table') }}
                             <div class="pull-right">
                                 <button class="btn btn-default btn-xs btn-filter">
-                                    <span class="fa fa-filter"></span> {{ trans('order.filter') }} 
+                                    <span class="fa fa-filter"></span> {{ trans('order.filter') }}
                                 </button>
                             </div>
                         </div>
@@ -42,24 +42,24 @@
                                                 <input type="checkbox" id="checkAll">
                                             </th>
                                             <th>
-                                                <input type="text" class="form-control" 
+                                                <input type="text" class="form-control"
                                                     placeholder="{{ trans('order.id') }}" disabled>
                                             </th>
                                             <th>
-                                                <input type="text" class="form-control" 
+                                                <input type="text" class="form-control"
                                                     placeholder="{{ trans('order.user') }}" disabled>
                                             </th>
                                             <th>
-                                                <input type="text" class="form-control" 
+                                                <input type="text" class="form-control"
                                                     placeholder="{{ trans('order.price') }}" disabled>
                                             </th>
                                             <th>
-                                                <input type="text" class="form-control" 
-                                                    placeholder="{{ trans('order.status') }}" disabled>
+                                                <input type="text" class="form-control"
+                                                    placeholder="{{ trans('order.shipping_address') }}" disabled>
                                             </th>
                                             <th>
-                                                <input type="text" class="form-control" 
-                                                    placeholder="{{ trans('order.shipping_address') }}" disabled>
+                                                <input type="text" class="form-control"
+                                                    placeholder="{{ trans('order.status') }}" disabled>
                                             </th>
                                             <th> {{ trans('order.edit') }} </th>
                                         </tr>
@@ -81,14 +81,14 @@
                                                         <button class="btn btn-success btn-sm">
                                                             {{ trans('order.paid') }}
                                                         </button>
-                                                    @else 
+                                                    @else
                                                         <button class="btn btn-danger btn-sm">
                                                             {{ trans('order.cancel') }}
                                                         </button>
                                                     @endif
                                                 </td>
                                                 <td>
-                                                    <a href="{{ route('admin.orders.edit', $order->id) }}" 
+                                                    <a href="{{ route('admin.orders.edit', $order->id) }}"
                                                         class="btn btn-primary btn-sm">
                                                         <i class="fa fa-edit"></i>
                                                     </a>
@@ -100,7 +100,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="paginate"> 
+                    <div class="paginate">
                         {{ $orders->render() }}
                     </div>
                 </div>

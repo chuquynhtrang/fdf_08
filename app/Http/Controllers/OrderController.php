@@ -58,6 +58,7 @@ class OrderController extends Controller
 
         $roomId = env('ROOM_ID');
         $apiKey = env('CHATWORK_API_KEY');
+
         ChatworkSDK::setApiKey($apiKey);
         $room = new ChatworkRoom($roomId);
         $room->sendMessageToAll(trans('settings.buy_success'));
@@ -70,6 +71,6 @@ class OrderController extends Controller
             $message->to(Auth::user()->email)->subject('Order Information');
         });
 
-        return redirect()->action('UserController@orderDetails', [Auth::user()->id, $order]);
+        return redirect()->action('UserController@checkoutSuccess', [$order->id]);
     }
 }

@@ -38,8 +38,8 @@
                                 {{ trans('settings.filter_by') }}
                             </div>
                             <div class="filter-body">
-                                <a href="{{ route('home') }}" class="btn btn-default sorting"> 
-                                    {{ trans('settings.default') }} 
+                                <a href="{{ route('home') }}" class="btn btn-default sorting">
+                                    {{ trans('settings.default') }}
                                 </a>
                                 <a href="{{ route('bestSelling') }}" class="btn btn-default sorting">
                                     {{ trans('settings.best_selling') }}&nbsp;
@@ -63,12 +63,12 @@
                                     <div class="caption">
                                         <h4>{{ $product->name }}</h4>
                                         <div class="clearfix">
-                                            <div class="pull-left price"> 
+                                            <div class="pull-left price">
                                                 {{ config('common.currency') }} {{ $product->price }}
                                             </div>
-                                            <a href="{{ route('products.show', $product->id) }}" 
-                                                class="btn btn-success pull-right"> 
-                                                {{ trans('product.view') }} 
+                                            <a href="{{ route('products.show', $product->id) }}"
+                                                class="btn btn-success pull-right">
+                                                {{ trans('product.view') }}
                                             </a>
                                         </div>
                                     </div>
