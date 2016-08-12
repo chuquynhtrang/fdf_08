@@ -11,7 +11,7 @@
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="{{ route('admin.orders.index') }}">
                 <i class="fa fa-file-text"></i> {{ trans('settings.orders') }}
             </a>
         </li>

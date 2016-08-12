@@ -53,6 +53,7 @@ class CategoryController extends Controller
         $category['name'] = $request->name;
         $parent_id = $request->parent_id;
         $category['parent_id'] = intval($parent_id);
+        $category['link'] = $request->link;
         $this->categoryRepository->store($category);
 
         return redirect()->route('admin.categories.index');
@@ -92,7 +93,7 @@ class CategoryController extends Controller
      */
     public function update(CategoryRequest $request, $id)
     {
-        $requestOnly = $request->only('name', 'parent_id');
+        $requestOnly = $request->only('name', 'parent_id', 'link');
         $this->categoryRepository->update($requestOnly, $id);
 
         return redirect()->route('admin.categories.index');

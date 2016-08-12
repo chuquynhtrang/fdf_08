@@ -40,6 +40,7 @@ class OrderController extends Controller
             $orderId = $order->id;
 
             $lineItem = $this->lineItemRepository->save($orderId);
+
             $quantity = $lineItem->quantity_product;
 
             $product = $this->productRepository->find($lineItem->product_id);
@@ -61,6 +62,14 @@ class OrderController extends Controller
         $room = new ChatworkRoom($roomId);
         $room->sendMessageToAll(trans('settings.buy_success'));
 
-        return redirect()->route('home');
+        $order = $this->orderRepository->getOrderLastest(Auth::user()->id);
+
+        $lineItems = $this->lineItemRepository->findBy('order_id', $order->id);
+
+        Mail::send('emails.order', ['order' => $order, 'lineItems' => $lineItems], function ($message) {
+            $message->to(Auth::user()->email)->subject('Order Information');
+        });
+
+        return redirect()->action('UserController@orderDetails', [Auth::user()->id, $order]);
     }
 }

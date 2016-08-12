@@ -37,4 +37,13 @@ class OrderRepository extends BaseRepository implements OrderRepositoryInterface
 
         return $order;
     }
+
+    public function getOrderLastest($userId)
+    {
+        $order = $this->model->where('user_id', $userId)
+                ->orderBy('id', 'desc')
+                ->first();
+
+        return $order;
+    }
 }

@@ -50,6 +50,15 @@
                                 ['class' => 'form-control'])
                             !!}
                         </div>
+                        
+                        <div class="form-group">
+                            {!! Form::label('link', trans('category.link'), [
+                                'class' => 'control-label',
+                            ]) !!}
+                            {!! Form::text('link', $category['link'], [
+                                'class' => 'form-control'
+                            ]) !!}
+                        </div>
 
                         <div class="form-group">
                             {!! Form::button('<i class="fa fa-edit"></i>&nbsp;' . trans('category.update'), [
