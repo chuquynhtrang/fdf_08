@@ -24,5 +24,5 @@ return [
     'quantity' => 'Quantity',
     'date' => 'Date',
     'deals_info' => 'Deals Information',
-    'product_id'
+    'user' => 'User',
 ];

@@ -58,6 +58,10 @@
                                                     <input type="text" class="form-control" 
                                                         placeholder="{{ trans('category.name') }}" disabled>
                                                 </th>
+                                                <th>
+                                                    <input type="text" class="form-control" 
+                                                        placeholder="{{ trans('category.name') }}" disabled>
+                                                </th>
                                                 <th> {{ trans('category.edit') }} </th>
                                             </tr>
                                         </thead>
@@ -68,6 +72,7 @@
                                                     <td>{{ $category->id }}</td>
                                                     <td>{{ $category->parent_id }}</td>
                                                     <td>{{ $category->name }}</td>
+                                                    <td>{{ $category->link }}</td>
                                                     <td>
                                                         <a href="{{ route('admin.categories.edit', $category->id) }}" 
                                                             class="btn btn-primary btn-sm">

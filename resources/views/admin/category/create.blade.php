@@ -62,6 +62,15 @@
                                 'class' => 'form-control',
                             ]) !!}
                         </div>
+                        
+                        <div class="form-group"> 
+                            {!! Form::label('link', trans('category.link'), [
+                                'class' => 'control-label',
+                            ]) !!}
+                            {!! Form::text('link', null, [
+                                'class' => 'form-control', 
+                            ]) !!}
+                        </div>
 
                         <div class="form-group">
                             {!! Form::button('<i class="fa fa-plus-circle"></i>&nbsp;' . trans('category.add'), [
