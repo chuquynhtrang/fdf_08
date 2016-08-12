@@ -11,9 +11,9 @@
                     <div class="panel-heading">
                         <h3 class="panel-title">{{ trans('settings.admin_manager') }}</h3>
                         <div class="pull-right">
-                            <a href="{{ route('admin.users.create') }}" class="btn btn-default btn-xs">     {{ trans('settings.create') }}
+                            <a href="{{ route('admin.users.create') }}" class="btn btn-default btn-xs button-create">{{ trans('settings.create') }}
                             </a>
-                            <button class="btn btn-default btn-xs btn-filter">
+                            <button class="btn btn-default btn-xs button-create">
                                 <span class="fa fa-filter"></span>{{ trans('settings.filter') }}
                             </button>
                         </div>

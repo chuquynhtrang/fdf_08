@@ -13,4 +13,12 @@ class SuggestRepository extends BaseRepository implements SuggestRepositoryInter
     {
         $this->model = $suggest;
     }
+
+    public function all()
+    {
+        $limit = isset($options['limit']) ? $options['limit'] : config('common.base_repository.limit');
+        $suggests = $this->model->paginate($limit);
+
+        return $suggests;
+    }
 }

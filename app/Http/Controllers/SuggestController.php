@@ -62,7 +62,7 @@ class SuggestController extends Controller
         $suggest['user_id'] = Auth::user()->id;
 
         try {
-            $data = $this->suggestRepository->store($suggest);
+            $this->suggestRepository->store($suggest);
 
             return redirect()->route('home');
         } catch (Exception $e) {

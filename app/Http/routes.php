@@ -95,9 +95,10 @@ Route::group(['middleware' => 'web'], function() {
             'create',
             'update',
             'store',
+            'destroy',
         ],
     ]);
-    
+
     Route::get('/home/{link}', [
         'as' => 'sublink',
         'uses' => 'HomeController@getLink',
@@ -132,6 +133,11 @@ Route::group(['middleware' => 'web'], function() {
         'as' => 'orderDetails',
         'uses' => 'UserController@orderDetails',
     ]);
+
+    Route::get('password/reset', [
+        'as' => 'password.reset',
+        'uses' => 'UserController@showResetForm',
+    ]);
 });
 
 Route::group(['middleware' => 'admin', 'prefix' => 'admin', 'namespace' => 'Admin'], function() {
@@ -155,6 +161,19 @@ Route::group(['middleware' => 'admin', 'prefix' => 'admin', 'namespace' => 'Admi
     Route::resource('products', 'ProductController', ['except' => 'destroy']);
 
     Route::resource('categories', 'CategoryController', ['except' => 'destroy']);
+
+    Route::resource('suggests', 'SuggestController', [
+        'only' => [
+            'index',
+            'edit',
+            'destroy',
+        ],
+    ]);
+
+    Route::post('suggests/storeProduct', [
+        'as' => 'admin.suggests.storeProduct',
+        'uses' => 'SuggestController@storeProduct',
+    ]);
 
     Route::post('users/destroy', [
         'as' => 'users.destroy',

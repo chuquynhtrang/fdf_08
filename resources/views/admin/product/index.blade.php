@@ -4,16 +4,16 @@
 @include('admin.sidebar')
     <div class="container">
         <div class="row">
-            <div class="col-md-1"></div>
-            <div class="col-md-7 col-md-offset-2">
+            <div class="col-md-2"></div>
+            <div class="col-md-10">
                 <div class="panel panel-primary filterable">
                     <div class="panel-heading">
                         <h3 class="panel-title">{{ trans('settings.admin_manager') }}</h3>
                         <div class="pull-right">
                             <a href="{{ route('admin.products.create') }}"
-                                class="btn btn-default btn-xs">{{ trans('settings.create') }}
+                                class="btn btn-default btn-xs button-create">{{ trans('settings.create') }}
                             </a>
-                            <button class="btn btn-default btn-xs btn-filter">
+                            <button class="btn btn-default btn-xs button-create">
                                 <span class="fa fa-filter"></span>{{ trans('settings.filter') }}
                             </button>
                         </div>
