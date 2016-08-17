@@ -26,6 +26,8 @@
                 <span class="badge">
                     @if (isset($countSuggest))
                         {{ $countSuggest }}
+                    @else
+                        {{ config('common.no_item') }}
                     @endif
                 </span>
             </a>

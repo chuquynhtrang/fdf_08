@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-md-2"></div>
             <div class="col-lg-10">
-                <div class="panel panel-info">
+                <div class="panel panel-primary">
                     <div class="panel-heading">
                         <h3 class="panel-title">
                             {{ trans('settings.edit_user') }}
@@ -26,6 +26,7 @@
                                     ]) !!}
                                     {!! Form::text('name', $user->name, [
                                         'class' => 'form-control',
+                                        'autofocus'
                                     ]) !!}
                                 </div>
 
@@ -41,13 +42,6 @@
                                         'class' => 'col-md-12 control-label'
                                     ]) !!}
                                     {!! Form::select('role', config('common.user_role'), $user->role, ['class' => 'form-control']) !!}
-                                </div>
-
-                                <div class="form-group">
-                                    {!! Form::label('password', trans('settings.password'), [
-                                        'class' => 'col-md-4 control-label'
-                                    ]) !!}
-                                    {!! Form::password('password', ['class' => 'form-control', 'required' => true]) !!}
                                 </div>
 
                                 <div class="form-group">

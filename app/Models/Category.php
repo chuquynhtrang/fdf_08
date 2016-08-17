@@ -9,7 +9,7 @@ use App\Models\Category;
 class Category extends Model
 {
     protected $fillable = [
-        'name', 'parent_id',
+        'name', 'parent_id', 'link',
     ];
 
     public function suggests()

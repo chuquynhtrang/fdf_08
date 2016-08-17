@@ -4,6 +4,23 @@
 @include('admin.sidebar')
 <div id="page-wrapper">
     <div class="container">
+        <div class="row page-title-row">
+            <div class="col-md-2"></div>
+            <div class="col-md-4">
+                <h3> {{ trans('category.categories') }} <small>&raquo;
+                    {{ trans('category.listing') }} </small>
+                </h3>
+            </div>
+            <div class="col-md-6 text-right">
+                <a href="{{ route('categories.downloadExcel', 'xlsx') }}">
+                    <button class="btn btn-success"><i class="fa fa-download"></i></button>
+                </a>
+                <a href="{{ route('admin.users.create') }}"
+                    class="btn btn-success">
+                    <i class="fa fa-plus-circle"></i>
+                </a>
+            </div>
+        </div>
         <div class="row">
             <div class="col-md-2"></div>
             <div class="col-md-10">
@@ -11,9 +28,7 @@
                     <div class="panel-heading">
                         <h3 class="panel-title">{{ trans('settings.admin_manager') }}</h3>
                         <div class="pull-right">
-                            <a href="{{ route('admin.users.create') }}" class="btn btn-default btn-xs button-create">{{ trans('settings.create') }}
-                            </a>
-                            <button class="btn btn-default btn-xs button-create">
+                            <button class="btn btn-default btn-xs button-create btn-filter">
                                 <span class="fa fa-filter"></span>{{ trans('settings.filter') }}
                             </button>
                         </div>
@@ -21,7 +36,7 @@
                     <div class="panel-body">
                         <div class="dataTable_wrapper">
                             {!! Form::open(['method' => 'POST', 'route' => 'users.destroy']) !!}
-                                <table class="table" id="myTable">
+                                <table class="table table-striped table-bordered table-hover">
                                     <thead>
                                         <tr class="filters">
                                             <th>
@@ -54,7 +69,7 @@
                                                 <td>{{ $user->email }}</td>
                                                 <td>{{ $user->role }}</td>
                                                 <td>
-                                                    <a class="btn btn-success" href="{{ route('admin.users.edit', [ $user->id ]) }}" title="{{ trans('settings.edit') }}">
+                                                    <a class="btn btn-primary" href="{{ route('admin.users.edit', [ $user->id ]) }}" title="{{ trans('settings.edit') }}">
                                                         <i class="fa fa-edit"></i>
                                                     </a>
                                                 </td>

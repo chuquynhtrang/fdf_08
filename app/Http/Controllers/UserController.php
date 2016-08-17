@@ -12,6 +12,7 @@ use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
 use App\Repositories\User\UserRepositoryInterface;
 use App\Repositories\Order\OrderRepositoryInterface;
+use App\Repositories\LineItem\LineItemRepositoryInterface;
 use App\Http\Requests\UserRequest;
 use Cloudder;
 use Mail;
@@ -24,11 +25,13 @@ class UserController extends Controller
 
     public function __construct(
         UserRepositoryInterface $userRepository,
-        OrderRepositoryInterface $orderRepository
+        OrderRepositoryInterface $orderRepository,
+        LineItemRepositoryInterface $lineItemRepository
     )
     {
         $this->userRepository = $userRepository;
         $this->orderRepository = $orderRepository;
+        $this->lineItemRepository = $lineItemRepository;
     }
 
     public function login(LoginRequest $request)
@@ -120,11 +123,20 @@ class UserController extends Controller
         return view('user.order_information', compact('orders'));
     }
 
+    public function checkoutSuccess($orderId)
+    {
+        $order = $this->orderRepository->find($orderId);
+
+        return view('product.checkout_success', compact('order'));
+    }
+
     public function orderDetails($id, $orderId)
     {
         $order = $this->orderRepository->find($orderId);
 
-        return view('user.show_order', compact('order'));
+        $lineItems = $this->lineItemRepository->findBy('order_id', intval($orderId));
+
+        return view('user.show_order', compact('order', 'lineItems'));
     }
 
     public function showResetForm()

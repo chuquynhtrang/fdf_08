@@ -96,7 +96,7 @@ class UserController extends Controller
      */
     public function update(UpdateUserRequest $request, $id)
     {
-        $user = $request->only(['name', 'email', 'role', 'password']);
+        $user = $request->only(['name', 'email', 'role']);
 
         try {
             $user = $this->userRepository->update($user, $id);

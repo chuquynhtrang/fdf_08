@@ -120,7 +120,7 @@
 
 .sidebar-nav {
     position: absolute;
-    background-color: #8BC34A;
+    background-color: #2E7D32;
     margin: 60px 0px 0px 20px;
     height: 400px;
     top: 0;
@@ -162,7 +162,7 @@ a {
 }
 
 #menu-user {
-    background-color: #AFB42B;
+    background-color: #81C784;
     top: 0;
     left: 100%;
     margin-top: 6px 0 0 -1px;
@@ -421,4 +421,18 @@ body {
 
 .panel-default > .panel-heading {
     background-color: #8BC34A;
+}
+
+.color-facebook {
+    color: red;
+}
+
+.check_success {
+    i {
+        color:#8BC34A;
+        padding-left:260px;
+    }
+    h3 {
+        text-align:center;
+    }
 }

@@ -22,7 +22,7 @@ return [
     ],
 
     'base_repository' => [
-        'limit' => 10,
+        'limit' => 5,
     ],
 
     'paginate' => 5,
@@ -43,4 +43,6 @@ return [
         1 => 'Paid',
         2 => 'Cancel',
     ],
+
+    'no_item' => 0,
 ];

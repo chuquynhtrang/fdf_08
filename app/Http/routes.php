@@ -138,6 +138,11 @@ Route::group(['middleware' => 'web'], function() {
         'as' => 'password.reset',
         'uses' => 'UserController@showResetForm',
     ]);
+
+    Route::get('checkoutSuccess/{order}', [
+        'as' => 'checkoutSuccess',
+        'uses' => 'UserController@checkoutSuccess',
+    ]);
 });
 
 Route::group(['middleware' => 'admin', 'prefix' => 'admin', 'namespace' => 'Admin'], function() {

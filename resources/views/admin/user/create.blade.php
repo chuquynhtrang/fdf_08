@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-7 col-md-offset-2">
-                <div class="panel panel-info">
+                <div class="panel panel-primary">
                     <div class="panel-heading">
                         <h3 class="panel-title">
                             {{ trans('settings.create_user') }}
@@ -24,6 +24,7 @@
                                     {!! Form::text('name', null, [
                                         'class' => 'form-control',
                                         'id' => 'name',
+                                        'autofocus',
                                     ]) !!}
                                 </div>
 

@@ -3,7 +3,7 @@ return [
     'orders' => 'Orders',
     'listing' => 'Listing',
     'table' => 'Order Table',
-    'filter' => 'Filter', 
+    'filter' => 'Filter',
     'id' => 'Order ID',
     'name' => 'Name',
     'create' => 'Create Order',
