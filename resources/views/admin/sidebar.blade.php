@@ -1,6 +1,11 @@
 <div id="sidebar-wrapper">
     <ul class="sidebar-nav">
         <li>
+            <a href="#">
+                <i class="fa fa-bar-chart-o"></i> {{ trans('settings.charts') }}
+            </a>
+        </li>
+        <li>
             <a href="{{ route('admin.categories.index') }}">
                 <i class="fa fa-dashboard"></i> {{ trans('settings.categories') }}
             </a>

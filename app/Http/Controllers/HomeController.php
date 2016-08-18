@@ -20,9 +20,6 @@ class HomeController extends Controller
     private $categoryRepository;
     private $productRepository;
     private $lineItemRepository;
-    private $categoriesParent;
-    private $categoriesChild;
-    private $totalCartItems;
 
     public function __construct(
         CategoryRepositoryInterface $categoryRepository,
@@ -33,9 +30,6 @@ class HomeController extends Controller
         $this->categoryRepository = $categoryRepository;
         $this->productRepository = $productRepository;
         $this->lineItemRepository = $lineItemRepository;
-        $this->categoriesParent = $this->categoryRepository->findBy('parent_id', config('common.parent'));
-        $this->categoriesChild = $this->categoryRepository->all();
-        $this->totalCartItems = Cart::count();
     }
     /**
      * Show the application dashboard.
@@ -46,10 +40,7 @@ class HomeController extends Controller
     {
         $products = $this->productRepository->paginate(config('common.items_per_page'));
 
-        $categoriesParent = $this->categoriesParent;
-        $categoriesChild = $this->categoriesChild;
-        $totalCartItems = $this->totalCartItems;
-        return view('home' , compact('categoriesParent', 'categoriesChild', 'products', 'totalCartItems'));
+        return view('home', compact('products'));
     }
 
     public function changeLanguage($lang)
@@ -65,30 +56,20 @@ class HomeController extends Controller
             $products = $this->productRepository->findBy('category_id', $category->id);
         }
 
-        $categoriesParent = $this->categoriesParent;
-        $categoriesChild = $this->categoriesChild;
-        $totalCartItems = $this->totalCartItems;
-
-        return view('home' , compact('categories', 'categoriesParent', 'categoriesChild', 'products', 'totalCartItems'));
+        return view('home', compact('products'));
     }
 
     public function bestPrice()
     {
         $products = $this->productRepository->orderBy('price', 'asc');
-        $categoriesParent = $this->categoriesParent;
-        $categoriesChild = $this->categoriesChild;
-        $totalCartItems = $this->totalCartItems;
         
-        return view('home' , compact('categoriesParent', 'categoriesChild', 'products', 'totalCartItems'));
+        return view('home' , compact('products'));
     }
 
     public function bestSelling()
     {
         $products = $this->lineItemRepository->orderByBestSelling();
-        $categoriesParent = $this->categoriesParent;
-        $categoriesChild = $this->categoriesChild;
-        $totalCartItems = $this->totalCartItems;
 
-        return view('home' , compact('categoriesParent', 'categoriesChild', 'products', 'totalCartItems'));
+        return view('home' , compact('products'));
     }
 }

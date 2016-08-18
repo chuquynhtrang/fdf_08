@@ -155,6 +155,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\RepositoryServiceProvider::class,
+        App\Providers\ComposerServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
         JD\Cloudder\CloudderServiceProvider::class,
         App\Providers\RepositoryServiceProvider::class,
@@ -162,6 +163,7 @@ return [
         Barryvdh\Debugbar\ServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
         Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
+        Khill\Lavacharts\Laravel\LavachartsServiceProvider::class,
     ],
 
     /*

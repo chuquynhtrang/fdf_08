@@ -7,7 +7,7 @@
         <div class="row page-title-row">
             <div class="col-md-2"></div>
             <div class="col-md-4">
-                <h3> {{ trans('category.categories') }} <small>&raquo;
+                <h3> {{ trans('settings.users') }} <small>&raquo;
                     {{ trans('category.listing') }} </small>
                 </h3>
             </div>

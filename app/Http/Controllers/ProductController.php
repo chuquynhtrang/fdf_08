@@ -20,7 +20,11 @@ class ProductController extends Controller
     private $productRepository;
     private $commentRepository;
 
-    public function __construct(ProductRepositoryInterface $productRepository, CommentRepositoryInterface $commentRepository, UserRepositoryInterface $userRepository)
+    public function __construct(
+        ProductRepositoryInterface $productRepository, 
+        CommentRepositoryInterface $commentRepository, 
+        UserRepositoryInterface $userRepository
+    )
     {
         $this->productRepository = $productRepository;
         $this->commentRepository = $commentRepository;
@@ -30,10 +34,10 @@ class ProductController extends Controller
     public function show($id)
     {
         $product = $this->productRepository->find($id);
-        $totalCartItems = Cart::count();
+
         $comments = $this->commentRepository->showComment($id);
 
-        return view('product.show', compact('product', 'totalCartItems', 'comments'));
+        return view('product.show', compact('product', 'comments'));
     }
 
     public function getAddToCart(Request $request, $id)
@@ -56,14 +60,10 @@ class ProductController extends Controller
 
     public function getCart()
     {
-        $products = Cart::content();
-
-        $totalCartItems = Cart::count();
-        $totalPrice = Cart::subtotal();
         $tax = Cart::tax();
         $totalIncludeTax = Cart::total();
 
-        return view('product.get-cart', compact('products', 'totalCartItems', 'totalPrice', 'tax', 'totalIncludeTax'));
+        return view('product.get-cart', compact('tax', 'totalIncludeTax'));
     }
 
     public function updateCart(Request $request, $rowId)
@@ -91,13 +91,10 @@ class ProductController extends Controller
 
     public function checkout()
     {
-        $totalCartItems = Cart::count();
-        $products = Cart::content();
-        $totalPrice = Cart::subtotal();
         $tax = Cart::tax();
         $totalIncludeTax = Cart::total();
 
-        return view('product.checkout', compact('totalCartItems', 'products', 'totalPrice', 'tax', 'totalIncludeTax'));
+        return view('product.checkout', compact('tax', 'totalIncludeTax'));
     }
 
     public function getComments(CreateCommentRequest $request, $id)

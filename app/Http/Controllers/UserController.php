@@ -16,6 +16,7 @@ use App\Repositories\LineItem\LineItemRepositoryInterface;
 use App\Http\Requests\UserRequest;
 use Cloudder;
 use Mail;
+use Cart;
 
 class UserController extends Controller
 {

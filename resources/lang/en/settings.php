@@ -89,4 +89,7 @@ return [
     'check_mail' => 'We will contact you as soon as possible.Please check your mail for more details',
     'view_detail_order' => 'View Detail Order',
     'come_back' => 'Come Back',
+    'charts' => 'Charts',
+    'view_cart' => 'View Cart',
+    'checkout' => 'Checkout',
 ];

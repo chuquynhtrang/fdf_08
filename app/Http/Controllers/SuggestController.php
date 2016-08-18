@@ -11,13 +11,17 @@ use App\Repositories\Suggest\SuggestRepositoryInterface;
 use App\Repositories\Suggest\SuggestRepository;
 use App\Repositories\Category\CategoryRepository;
 use App\Repositories\Category\CategoryRepositoryInterface;
+use Cart; 
 
 class SuggestController extends Controller
 {
     private $suggestRepository;
     private $categoryRepository;
 
-    public function __construct(SuggestRepositoryInterface $suggestRepository, CategoryRepositoryInterface $categoryRepository)
+    public function __construct(
+        SuggestRepositoryInterface $suggestRepository, 
+        CategoryRepositoryInterface $categoryRepository
+    )
     {
         $this->suggestRepository = $suggestRepository;
         $this->categoryRepository = $categoryRepository;
