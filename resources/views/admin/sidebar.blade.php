@@ -1,7 +1,7 @@
 <div id="sidebar-wrapper">
     <ul class="sidebar-nav">
         <li>
-            <a href="#">
+            <a href="{{ route('admin.chart') }}">
                 <i class="fa fa-bar-chart-o"></i> {{ trans('settings.charts') }}
             </a>
         </li>

@@ -49,7 +49,9 @@
                                             <div class="minicart-item-info">
                                                 <img src="{{ $productCart->options->image }}" alt="">
                                                 <div class="minicart-item-name">
-                                                    {{ $productCart->name }}
+                                                    <a href="{{ route('products.show', $productCart->id) }}"> 
+                                                        {{ $productCart->name }}
+                                                    </a>
                                                 </div>
                                                 <span class="minicart-item-price">
                                                     {{ config('common.currency') }} {{ $productCart->price }} 

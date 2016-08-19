@@ -33,7 +33,7 @@ return [
     	2 => 'Drinks',
     ],
 
-    'items_per_page' => 6,
+    'items_per_page' => 15,
     'currency' => '$',
     'unpaid' => 0,
     'none' => 0,
@@ -45,4 +45,5 @@ return [
     ],
 
     'no_item' => 0,
+    'limit' => 5,
 ];

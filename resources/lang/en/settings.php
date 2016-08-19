@@ -92,4 +92,8 @@ return [
     'charts' => 'Charts',
     'view_cart' => 'View Cart',
     'checkout' => 'Checkout',
+    'day_of_month' => 'Day Of Month',
+    'prices' => 'Prices',
+    'percent' => 'Percent',
+    'products_in_stock' => 'Products in stock',
 ];

@@ -15,7 +15,7 @@ $factory->define(App\Models\Product::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'description' => $faker->text(),
-        'image' => '/images/pizza.jpg',
+        'image' => 'http://res.cloudinary.com/uetboo/image/upload/v1470996404/foods/product/pizza.jpg',
         'price' => $faker->numberBetween(10, 100),
         'status' => $faker->randomElement([1, 2, 3]), 
         'quantity' => $faker->numberBetween(10, 999),

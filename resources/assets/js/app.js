@@ -1,5 +1,6 @@
 window.$ = window.jQuery = require('jquery');
 require('bootstrap-sass');
+require('jquery-lazyload');
 
 $(document).ready(function () {
     $.ajaxSetup({
@@ -137,6 +138,10 @@ $(document).ready(function () {
 
     $('#comment').click(function() {
         $('#commentProduct').show('fast');
+    });
+
+    $('img.image-product').lazyload({
+        effect : "fadeIn"
     });
 });
 

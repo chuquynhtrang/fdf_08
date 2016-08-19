@@ -39,7 +39,7 @@ class HomeController extends Controller
     public function index()
     {
         $products = $this->productRepository->paginate(config('common.items_per_page'));
-
+ 
         return view('home', compact('products'));
     }
 

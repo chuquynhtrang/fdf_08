@@ -139,7 +139,7 @@ Route::group(['middleware' => 'web'], function() {
         'uses' => 'UserController@showResetForm',
     ]);
 
-    Route::get('checkoutSuccess/{order}', [
+    Route::get('checkout-success/{order}', [
         'as' => 'checkoutSuccess',
         'uses' => 'UserController@checkoutSuccess',
     ]);
@@ -210,6 +210,11 @@ Route::group(['middleware' => 'admin', 'prefix' => 'admin', 'namespace' => 'Admi
     Route::get('orders/downloadExcel/{type}', [
         'as' => 'orders.downloadExcel',
         'uses' => 'OrderController@downloadExcel'
+    ]);
+
+    Route::get('charts', [
+        'as' => 'admin.chart',
+        'uses' => 'AdminController@chart',
     ]);
 });
 

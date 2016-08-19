@@ -67,7 +67,9 @@
                                         @foreach ($products as $product)
                                             <div class="order-item">
                                                 <div class="name">
-                                                    {{ $product-> name }} X {{ $product->qty }}
+                                                <a href="{{ route('products.show', $product->id) }}"> 
+                                                    {{ $product-> name }} 
+                                                </a> X {{ $product->qty }}
                                                 </div>
                                                 <div class="product-price">
                                                     {{ config('common.currency') }} {{ $product->price }}

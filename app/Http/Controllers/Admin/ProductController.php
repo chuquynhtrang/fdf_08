@@ -33,7 +33,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = $this->productRepository->all();
+        $products = $this->productRepository->paginate(config('common.base_repository.limit'));
 
         return view('admin.product.index', compact('products'));
     }

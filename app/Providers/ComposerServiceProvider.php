@@ -22,6 +22,7 @@ class ComposerServiceProvider extends ServiceProvider
             'user.order_information',
             'user.show_order',
             'product.checkout',
+            'product.checkout_success',
         ], 'App\Http\ViewComposers\ProductComposer');
     }
 

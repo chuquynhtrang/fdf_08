@@ -7,6 +7,8 @@ use App\Models\Order;
 use App\Repositories\BaseRepository;
 use App\Repositories\Order\OrderRepositoryInterface;
 use Cart;
+use DB;
+use Carbon\Carbon;
 
 class OrderRepository extends BaseRepository implements OrderRepositoryInterface
 {
@@ -43,6 +45,16 @@ class OrderRepository extends BaseRepository implements OrderRepositoryInterface
         $order = $this->model->where('user_id', $userId)
                 ->orderBy('id', 'desc')
                 ->first();
+
+        return $order;
+    }
+
+    public function groupByDate()
+    {
+        $order = $this->model->all()
+                ->groupBy(function($date) {
+                    return Carbon::parse($date->updated_at)->format('Y-m-d');
+                });
 
         return $order;
     }

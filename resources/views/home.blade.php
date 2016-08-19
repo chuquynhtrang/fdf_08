@@ -58,7 +58,7 @@
                             <div class="col-sm-6 col-md-4">
                                 <div class="thumbnail">
                                     <a href="{{ route('products.show', $product->id) }}">
-                                        <img src="{{ $product->image }}" class="image-product">
+                                        <img data-original="{{ $product->image }}" class="image-product">
                                     </a>
                                     <div class="caption">
                                         <h4>{{ $product->name }}</h4>
